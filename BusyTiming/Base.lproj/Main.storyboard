@@ -11,7 +11,7 @@
         <!--Table View List Controller-->
         <scene sceneID="Te3-94-GVj">
             <objects>
-                <tableViewController id="LyF-vj-8E7" customClass="TableViewListController" customModule="BusyTiming" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="TableViewListController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="LyF-vj-8E7" customClass="TableViewListController" customModule="BusyTiming" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="wja-s0-bb6">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -35,7 +35,7 @@
                     <navigationItem key="navigationItem" id="un2-Oe-59o">
                         <barButtonItem key="leftBarButtonItem" systemItem="action" id="ZCU-Es-7CD">
                             <connections>
-                                <action selector="chooseTheAffaireButtonPress:" destination="LyF-vj-8E7" id="ooL-vh-I4N"/>
+                                <action selector="chooseTheAffaireButtonPress:" destination="LyF-vj-8E7" id="3wc-Pe-ild"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="194-Ro-CVv">
@@ -53,7 +53,7 @@
         <!--Timer View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="TimerViewController" customModule="BusyTiming" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="TimerVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="BYZ-38-t0r" customClass="TimerViewController" customModule="BusyTiming" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -73,10 +73,25 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zc9-jV-YHL">
-                                <rect key="frame" x="279" y="98" width="72" height="42"/>
+                                <rect key="frame" x="279" y="98" width="53" height="42"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                <state key="normal" title="Button"/>
+                                <state key="normal" title="Save"/>
+                                <connections>
+                                    <action selector="saveTimeButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Q3O-HL-Wxw"/>
+                                </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Affair" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Tz-AB-vsM">
+                                <rect key="frame" x="10" y="178" width="69.5" height="36"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hHW-HA-pcI">
+                                <rect key="frame" x="278.5" y="175" width="125.5" height="36"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -85,18 +100,28 @@
                             <constraint firstItem="eQ2-Di-x6G" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="51" id="G9K-gQ-F2G"/>
                             <constraint firstItem="roZ-OZ-6PH" firstAttribute="leading" secondItem="eQ2-Di-x6G" secondAttribute="trailing" constant="20" id="RRH-sJ-2xs"/>
                             <constraint firstItem="Zc9-jV-YHL" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="54" id="UvM-nP-uQW"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="hHW-HA-pcI" secondAttribute="trailing" constant="10" id="Ux5-kE-eE0"/>
                             <constraint firstItem="roZ-OZ-6PH" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="VEJ-od-YsI"/>
+                            <constraint firstItem="hHW-HA-pcI" firstAttribute="top" secondItem="Zc9-jV-YHL" secondAttribute="bottom" constant="35" id="Xan-Ga-oV6"/>
+                            <constraint firstItem="2Tz-AB-vsM" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="ZvO-Y2-QWB"/>
                             <constraint firstItem="Zc9-jV-YHL" firstAttribute="leading" secondItem="roZ-OZ-6PH" secondAttribute="trailing" constant="20" id="fD1-PW-7ZC"/>
+                            <constraint firstItem="2Tz-AB-vsM" firstAttribute="top" secondItem="eQ2-Di-x6G" secondAttribute="bottom" constant="35" id="pC4-VF-631"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="ck3-ap-q71">
+                        <barButtonItem key="backBarButtonItem" title="change" id="fgi-hO-7SB"/>
+                    </navigationItem>
                     <connections>
+                        <outlet property="affairLabel" destination="2Tz-AB-vsM" id="oC2-hy-B1y"/>
+                        <outlet property="saveTimerButton" destination="Zc9-jV-YHL" id="AdM-OC-IO9"/>
+                        <outlet property="saveTimerLabel" destination="hHW-HA-pcI" id="agE-yC-ScL"/>
                         <outlet property="startStopButton" destination="eQ2-Di-x6G" id="OYV-Le-Djz"/>
                         <outlet property="timerLabel" destination="roZ-OZ-6PH" id="kP6-rr-nfW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-652.17391304347836" y="666.96428571428567"/>
+            <point key="canvasLocation" x="257.97101449275362" y="750.66964285714278"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="lKX-Cn-T7M">

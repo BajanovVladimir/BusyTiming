@@ -12,3 +12,9 @@ protocol DisplayTimerProtocol  {
 protocol DisplayTimerDelegat {
     var  displayTimerDelegat: DisplayTimerProtocol? {get set}
 }
+
+protocol DisplayAffairProtocol {
+    func selectedAffaire(nameAffair: String)
+}
+
+

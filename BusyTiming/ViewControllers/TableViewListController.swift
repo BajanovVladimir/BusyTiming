@@ -2,7 +2,8 @@ import UIKit
 
 class TableViewListController: UITableViewController {
 
-   
+    var affairDelegate: DisplayAffairProtocol?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -32,13 +33,17 @@ class TableViewListController: UITableViewController {
     }
     @IBAction func chooseTheAffaireButtonPress(_ sender: UIBarButtonItem) {
         if ListOfAffairs.count > 0 {
-        guard let affaire = ListOfAffairs[selectedIndex]["Name"]  else {
+        guard let affair = ListOfAffairs[selectedIndex]["Name"]  else {
             return
         }
-            print(affaire)
+            guard let affairString = affair as? String else {return print("nil")}
+            print("affair = \(affairString)")
+            affairDelegate?.selectedAffaire(nameAffair: affairString)
+            guard let vc = storyboard?.instantiateViewController(identifier: "TimerVC") else { return  }
+            self.navigationController?.pushViewController(vc, animated: true)
             
         }
-        
+       
     }
     
     
@@ -117,5 +122,4 @@ class TableViewListController: UITableViewController {
         // Pass the selected object to the new view controller.
     }
     */
-
 }
