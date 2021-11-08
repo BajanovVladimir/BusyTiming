@@ -25,6 +25,7 @@ var   ListOfAffairs: [[String: Any]] {
 }
 
 var selectedIndex = 0
+var  affairName = ""
 
 func addAffair(_ nameOfAffair: String, isCompleted:Bool = false) {
     ListOfAffairs.append(["Name": nameOfAffair,"isSelected": isCompleted])
@@ -36,6 +37,8 @@ func changeState (index: Int) {
         ListOfAffairs[selectedIndex]["isSelected"] = false
     }
     selectedIndex = index
+    affairName = ListOfAffairs[selectedIndex]["Name"]  as!  String
+    
 }
 
 func deleteAffairs(index: Int){

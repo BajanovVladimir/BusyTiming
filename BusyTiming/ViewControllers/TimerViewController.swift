@@ -21,7 +21,7 @@ class TimerViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        vc.affairDelegate = self
+        affairLabel.text =  affairName
         setDisignStartBattons()
         setDisignSaveTimeButtonHide()
         
@@ -69,13 +69,7 @@ class TimerViewController: UIViewController {
     }
 }
 
-extension    TimerViewController: DisplayTimerProtocol, DisplayAffairProtocol {
-   
-    func selectedAffaire(nameAffair: String) {
-        print(nameAffair)
-        affairLabel.text = nameAffair
-    }
-    
+extension    TimerViewController: DisplayTimerProtocol {
     func displayTimer(result: String) {
             timerLabel.text  = result
     }

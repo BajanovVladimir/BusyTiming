@@ -1,11 +1,10 @@
 import UIKit
 
 class TableViewListController: UITableViewController {
-
-    var affairDelegate: DisplayAffairProtocol?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        affairName = ListOfAffairs[selectedIndex]["Name"]  as!  String        
     }
 
     @IBAction func addAffairPress(_ sender: UIBarButtonItem) {
@@ -33,12 +32,6 @@ class TableViewListController: UITableViewController {
     }
     @IBAction func chooseTheAffaireButtonPress(_ sender: UIBarButtonItem) {
         if ListOfAffairs.count > 0 {
-        guard let affair = ListOfAffairs[selectedIndex]["Name"]  else {
-            return
-        }
-            guard let affairString = affair as? String else {return print("nil")}
-            print("affair = \(affairString)")
-            affairDelegate?.selectedAffaire(nameAffair: affairString)
             guard let vc = storyboard?.instantiateViewController(identifier: "TimerVC") else { return  }
             self.navigationController?.pushViewController(vc, animated: true)
             
