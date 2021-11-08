@@ -4,7 +4,9 @@ class TableViewListController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        affairName = ListOfAffairs[selectedIndex]["Name"]  as!  String        
+        affairName = ListOfAffairs[selectedIndex]["Name"]  as!  String
+        self.tableView.reloadData()
+        print (affairName)
     }
 
     @IBAction func addAffairPress(_ sender: UIBarButtonItem) {

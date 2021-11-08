@@ -24,7 +24,19 @@ var   ListOfAffairs: [[String: Any]] {
     }
 }
 
-var selectedIndex = 0
+var selectedIndex: Int {
+    get {
+        if let indexValue  = UserDefaults.standard.integer(forKey: "indexKey") as? Int {
+            return indexValue
+        } else {
+            return 0
+        }
+    }
+    set {
+            UserDefaults.standard.set(newValue, forKey: "indexKey")
+            UserDefaults.standard.synchronize()
+    }
+}
 var  affairName = ""
 
 func addAffair(_ nameOfAffair: String, isCompleted:Bool = false) {
