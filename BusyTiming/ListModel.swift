@@ -39,7 +39,7 @@ var selectedIndex: Int {
 }
 var  affairName = ""
 
-func addAffair(_ nameOfAffair: String, isCompleted:Bool = false) {
+func addAffair(_ nameOfAffair: String, isCompleted:Bool = false, time:Int = 0) {
     ListOfAffairs.append(["Name": nameOfAffair,"isSelected": isCompleted])
 }
 

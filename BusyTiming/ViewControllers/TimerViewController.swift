@@ -12,6 +12,7 @@ class TimerViewController: UIViewController {
     var timerCounting = false
     var  timer = MainTimerUse()
     let vc = TableViewListController()
+    var i = 0
     
     @IBOutlet weak var startStopButton: UIButton!
     @IBOutlet weak var timerLabel: UILabel!
@@ -21,10 +22,11 @@ class TimerViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        timer.totalTimeInt = ListOfAffairs[selectedIndex]["Time"] as? Int ?? 0
+        saveTimerLabel.text = timer.conversionOfTimeFromSecondsToString(timer.totalTimeInt)
         affairLabel.text =  affairName
         setDisignStartBattons()
         setDisignSaveTimeButtonHide()
-        
     }
     
     func setDisignStopBattons () {
@@ -53,8 +55,10 @@ class TimerViewController: UIViewController {
             setDisignSaveTimeButtonShow()
             timerCounting = false
             timer.timer.invalidate()
+            timer.calculateTotalTime()
         } else {
             setDisignStopBattons()
+            timer.timerResultValue = 0
             timer.displayTimerDelegat = self
             timerCounting = true
             timer.timerOn()
@@ -64,7 +68,8 @@ class TimerViewController: UIViewController {
     @IBAction func saveTimeButtonPressed(_ sender: UIButton) {
         if !timerCounting {
             setDisignSaveTimeButtonHide()
-            saveTimerLabel.text = timerLabel.text
+            saveTimerLabel.text = timer.totalTimeString
+            
         }
     }
 }

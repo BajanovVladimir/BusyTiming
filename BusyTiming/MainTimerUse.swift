@@ -12,8 +12,9 @@ class  MainTimerUse: DisplayTimerDelegat {
     var displayTimerDelegat: DisplayTimerProtocol?
     
     var timer = Timer()
-    var secondTimer = 0
     var timerResultValue  = 0
+    var totalTimeInt = 0
+    var  totalTimeString  = "00:00:00"
     var timerCounting  = false
     var  timerResult: Int {
         get {
@@ -27,9 +28,19 @@ class  MainTimerUse: DisplayTimerDelegat {
     
     @objc  func  timerCounter() -> Void {
         timerResultValue = timerResult + 1
-        let time = convertFromSecondsToHoursMinutesSeconds(timerResult)
-        let timeString = convertFromTimeToString(hours: time.0, minutes: time.1, seconds: time.2)
+        let timeString = conversionOfTimeFromSecondsToString(timerResult)
         displayTimerDelegat?.displayTimer(result: timeString)
+    }
+    
+    func calculateTotalTime () {
+        totalTimeInt = totalTimeInt + timerResult
+        ListOfAffairs[selectedIndex]["Time"] = totalTimeInt
+        totalTimeString  = conversionOfTimeFromSecondsToString(totalTimeInt)
+    }
+    
+    func conversionOfTimeFromSecondsToString(_ time: Int) -> String {
+        let  time = convertFromSecondsToHoursMinutesSeconds(time)
+        return  convertFromTimeToString(hours: time.0, minutes: time.1, seconds: time.2)
     }
     
     func    convertFromSecondsToHoursMinutesSeconds(_ seconds: Int) -> (Int, Int, Int) {

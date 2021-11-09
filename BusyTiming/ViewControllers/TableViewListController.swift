@@ -12,7 +12,7 @@ class TableViewListController: UITableViewController {
     @IBAction func addAffairPress(_ sender: UIBarButtonItem) {
         if ListOfAffairs.count == 1 {
         }
-        let alertController = UIAlertController(title: "Enter the name ofthe affair", message: "", preferredStyle: .alert)
+        let alertController = UIAlertController(title: "Enter the name of  the affair", message: "", preferredStyle: .alert)
         alertController.addTextField { (textField) in
             textField.placeholder = "New affair"
         }
