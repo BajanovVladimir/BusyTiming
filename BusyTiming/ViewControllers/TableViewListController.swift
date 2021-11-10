@@ -2,11 +2,15 @@ import UIKit
 
 class TableViewListController: UITableViewController {
     
+    var timer =  MainTimerUse()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         affairName = ListOfAffairs[selectedIndex]["Name"]  as!  String
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
         self.tableView.reloadData()
-        print (affairName)
     }
 
     @IBAction func addAffairPress(_ sender: UIBarButtonItem) {
@@ -57,7 +61,10 @@ class TableViewListController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ListCell", for: indexPath)
         let currentList = ListOfAffairs[indexPath.row]
-        cell.textLabel?.text = currentList ["Name"] as? String
+        let currentName = currentList["Name"] as? String ?? ""
+        let currentTime = currentList["Time"] as? Int ?? 0
+        let curentTimeString = timer.conversionOfTimeFromSecondsToString(currentTime)
+        cell.textLabel?.text = currentName + "     " + curentTimeString
         if (currentList["isSelected"] as? Bool) == true {
             cell.accessoryType = .checkmark
         } else {

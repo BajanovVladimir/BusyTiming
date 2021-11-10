@@ -16,18 +16,14 @@ class  MainTimerUse: DisplayTimerDelegat {
     var totalTimeInt = 0
     var  totalTimeString  = "00:00:00"
     var timerCounting  = false
-    var  timerResult: Int {
-        get {
-            return  timerResultValue
-        }
-    }
+    var  timerResult = 0
     
     func  timerOn  () {
         timer   = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(timerCounter), userInfo: nil, repeats: true)
     }
     
     @objc  func  timerCounter() -> Void {
-        timerResultValue = timerResult + 1
+        timerResult = timerResult + 1
         let timeString = conversionOfTimeFromSecondsToString(timerResult)
         displayTimerDelegat?.displayTimer(result: timeString)
     }
