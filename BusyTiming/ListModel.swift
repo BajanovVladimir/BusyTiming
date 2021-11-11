@@ -7,59 +7,42 @@
 
 import Foundation
 
-struct Entry {
-    var Name: String
+struct Activity {
+    var name: String
     var isSelected:  Bool
-    var Time: Int
-}
-
-var   ListOfAffairs: [[String: Any]] {
-    get {
-        if var array = UserDefaults.standard.array(forKey: "ListOfAffairsKey") as? [[String:Any]] {
-            if array.count == 1 {
-                array[0]["isSelected"] = true
-            }
-        return array
-        } else {
-            return []
-        }
-    }
-    set {
-        UserDefaults.standard.set(newValue, forKey: "ListOfAffairsKey")
-        UserDefaults.standard.synchronize()
+    var time: Int
+    
+    init(nameInit: String, selectedInit:Bool, timeInit:Int){
+      name = nameInit
+      isSelected = selectedInit
+        time = timeInit
     }
 }
 
-var selectedIndex: Int {
-    get {
-        if let indexValue  = UserDefaults.standard.integer(forKey: "indexKey") as? Int {
-            return indexValue
-        } else {
-            return 0
-        }
-    }
-    set {
-            UserDefaults.standard.set(newValue, forKey: "indexKey")
-            UserDefaults.standard.synchronize()
-    }
-}
-var  affairName = ""
+var   ListOfActivity: [Activity] = []
+    
+var selectedIndex = 0
+var  activityName = ""
 
-func addAffair(_ nameOfAffair: String, isCompleted:Bool = false, time:Int = 0) {
-    ListOfAffairs.append(["Name": nameOfAffair,"isSelected": isCompleted, "Time":  time])
+func addActivity(_ nameOfActivity: String, isCompleted:Bool = false, time:Int = 0) {
+    let activity = Activity(nameInit: nameOfActivity, selectedInit: isCompleted, timeInit: time)
+    ListOfActivity.append(activity)
+    if ListOfActivity.count == 1 {
+        ListOfActivity[0].isSelected = true
+        activityName = ListOfActivity[0].name
+    }
 }
 
 func changeState (index: Int) {
     if index != selectedIndex {
-        ListOfAffairs[index]["isSelected"] = !(ListOfAffairs[index]["isSelected"] as! Bool)
-        ListOfAffairs[selectedIndex]["isSelected"] = false
+        ListOfActivity[index].isSelected = !(ListOfActivity[index].isSelected)
+        ListOfActivity[selectedIndex].isSelected = false
     }
     selectedIndex = index
-    affairName = ListOfAffairs[selectedIndex]["Name"]  as!  String
-    
+    activityName = ListOfActivity[selectedIndex].name
 }
 
 func deleteAffairs(index: Int){
     selectedIndex = 0
-    ListOfAffairs.remove(at: index)
+    ListOfActivity.remove(at: index)
 }

@@ -6,7 +6,9 @@ class TableViewListController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        affairName = ListOfAffairs[selectedIndex]["Name"]  as!  String
+        if ListOfActivity.count > 0 {
+            activityName = ListOfActivity[selectedIndex].name
+        }
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -14,7 +16,7 @@ class TableViewListController: UITableViewController {
     }
 
     @IBAction func addAffairPress(_ sender: UIBarButtonItem) {
-        if ListOfAffairs.count == 1 {
+        if ListOfActivity.count == 1 {
         }
         let alertController = UIAlertController(title: "Enter the name of  the affair", message: "", preferredStyle: .alert)
         alertController.addTextField { (textField) in
@@ -29,7 +31,7 @@ class TableViewListController: UITableViewController {
             guard let newAffairName = alertController.textFields?[0].text else {
                 return
             }
-            addAffair(newAffairName)
+            addActivity(newAffairName)
             self.tableView.reloadData()
         }
         alertController.addAction(alertAction1)
@@ -37,7 +39,7 @@ class TableViewListController: UITableViewController {
         present(alertController, animated: true, completion: nil)
     }
     @IBAction func chooseTheAffaireButtonPress(_ sender: UIBarButtonItem) {
-        if ListOfAffairs.count > 0 {
+        if ListOfActivity.count > 0 {
             guard let vc = storyboard?.instantiateViewController(identifier: "TimerVC") else { return  }
             self.navigationController?.pushViewController(vc, animated: true)
             
@@ -54,18 +56,18 @@ class TableViewListController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return ListOfAffairs.count
+        return ListOfActivity.count
     }
 
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ListCell", for: indexPath)
-        let currentList = ListOfAffairs[indexPath.row]
-        let currentName = currentList["Name"] as? String ?? ""
-        let currentTime = currentList["Time"] as? Int ?? 0
+        let currentList = ListOfActivity[indexPath.row]
+        let currentName = currentList.name
+        let currentTime = currentList.time
         let curentTimeString = timer.conversionOfTimeFromSecondsToString(currentTime)
         cell.textLabel?.text = currentName + "     " + curentTimeString
-        if (currentList["isSelected"] as? Bool) == true {
+        if currentList.isSelected == true {
             cell.accessoryType = .checkmark
         } else {
             cell.accessoryType = .none

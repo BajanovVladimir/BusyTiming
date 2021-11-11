@@ -30,7 +30,7 @@ class  MainTimerUse: DisplayTimerDelegat {
     
     func calculateTotalTime () {
         totalTimeInt = totalTimeInt + timerResult
-        ListOfAffairs[selectedIndex]["Time"] = totalTimeInt
+        ListOfActivity[selectedIndex].time = totalTimeInt
         totalTimeString  = conversionOfTimeFromSecondsToString(totalTimeInt)
     }
     
@@ -52,7 +52,6 @@ class  MainTimerUse: DisplayTimerDelegat {
         timeString += String(format: "%02d",  seconds)
         return  timeString
     }
-    
     
     func  timerOff() {
         timer.invalidate()
