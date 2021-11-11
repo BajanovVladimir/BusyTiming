@@ -7,6 +7,12 @@
 
 import Foundation
 
+struct Entry {
+    var Name: String
+    var isSelected:  Bool
+    var Time: Int
+}
+
 var   ListOfAffairs: [[String: Any]] {
     get {
         if var array = UserDefaults.standard.array(forKey: "ListOfAffairsKey") as? [[String:Any]] {
