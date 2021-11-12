@@ -12,7 +12,7 @@ struct Activity {
     var isSelected:  Bool
     var time: Int
     
-    init(nameInit: String, selectedInit:Bool, timeInit:Int){
+    init(nameInit: String, selectedInit:Bool, timeInit:Int) {
       name = nameInit
       isSelected = selectedInit
         time = timeInit
@@ -24,7 +24,7 @@ var   ListOfActivity: [Activity] = []
 var selectedIndex = 0
 var  activityName = ""
 
-func addActivity(_ nameOfActivity: String, isCompleted:Bool = false, time:Int = 0) {
+func addActivity(nameOfActivity: String, isCompleted:Bool = false, time:Int = 0) {
     let activity = Activity(nameInit: nameOfActivity, selectedInit: isCompleted, timeInit: time)
     ListOfActivity.append(activity)
     if ListOfActivity.count == 1 {
@@ -42,7 +42,7 @@ func changeState (index: Int) {
     activityName = ListOfActivity[selectedIndex].name
 }
 
-func deleteAffairs(index: Int){
+func deleteActivity(index: Int){
     selectedIndex = 0
     ListOfActivity.remove(at: index)
 }

@@ -15,7 +15,7 @@ class TableViewListController: UITableViewController {
         self.tableView.reloadData()
     }
 
-    @IBAction func addAffairPress(_ sender: UIBarButtonItem) {
+    @IBAction func addActivityPress(_ sender: UIBarButtonItem) {
         if ListOfActivity.count == 1 {
         }
         let alertController = UIAlertController(title: "Enter the name of  the affair", message: "", preferredStyle: .alert)
@@ -28,17 +28,17 @@ class TableViewListController: UITableViewController {
         
         let alertAction2 = UIAlertAction(title: "Create", style: .cancel) {
             (alert) in
-            guard let newAffairName = alertController.textFields?[0].text else {
+            guard let newName = alertController.textFields?[0].text else {
                 return
             }
-            addActivity(newAffairName)
+            addActivity(nameOfActivity: newName)
             self.tableView.reloadData()
         }
         alertController.addAction(alertAction1)
         alertController.addAction(alertAction2)
         present(alertController, animated: true, completion: nil)
     }
-    @IBAction func chooseTheAffaireButtonPress(_ sender: UIBarButtonItem) {
+    @IBAction func chooseTheActivityButtonPress(_ sender: UIBarButtonItem) {
         if ListOfActivity.count > 0 {
             guard let vc = storyboard?.instantiateViewController(identifier: "TimerVC") else { return  }
             self.navigationController?.pushViewController(vc, animated: true)
@@ -88,7 +88,7 @@ class TableViewListController: UITableViewController {
     // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            deleteAffairs(index: indexPath.row)
+            deleteActivity(index: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
@@ -115,8 +115,6 @@ class TableViewListController: UITableViewController {
         // Return false if you do not want the item to be re-orderable.
         return true
     }
-   
-
     /*
     // MARK: - Navigation
 

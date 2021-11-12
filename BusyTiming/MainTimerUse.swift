@@ -14,12 +14,12 @@ class  MainTimerUse: DisplayTimerDelegat {
     var timer = Timer()
     var timerResultValue  = 0
     var totalTimeInt = 0
-    var  totalTimeString  = "00:00:00"
+    var totalTimeString  = "00:00:00"
     var timerCounting  = false
-    var  timerResult = 0
+    var timerResult = 0
     
-    func  timerOn  () {
-        timer   = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(timerCounter), userInfo: nil, repeats: true)
+    func  timerOn() {
+        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(timerCounter), userInfo: nil, repeats: true)
     }
     
     @objc  func  timerCounter() -> Void {
@@ -28,19 +28,19 @@ class  MainTimerUse: DisplayTimerDelegat {
         displayTimerDelegat?.displayTimer(result: timeString)
     }
     
-    func calculateTotalTime () {
+    func calculateTotalTime() {
         totalTimeInt = totalTimeInt + timerResult
         ListOfActivity[selectedIndex].time = totalTimeInt
         totalTimeString  = conversionOfTimeFromSecondsToString(totalTimeInt)
     }
     
     func conversionOfTimeFromSecondsToString(_ time: Int) -> String {
-        let  time = convertFromSecondsToHoursMinutesSeconds(time)
+        let time = convertFromSecondsToHoursMinutesSeconds(time)
         return  convertFromTimeToString(hours: time.0, minutes: time.1, seconds: time.2)
     }
     
     func    convertFromSecondsToHoursMinutesSeconds(_ seconds: Int) -> (Int, Int, Int) {
-        return  (seconds / 3600, (seconds  % 3600) / 60, (seconds % 3600) % 60)
+        return (seconds / 3600, (seconds  % 3600) / 60, (seconds % 3600) % 60)
     }
     
     func convertFromTimeToString (hours: Int, minutes: Int ,  seconds: Int) ->  String {
