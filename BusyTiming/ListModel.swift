@@ -7,6 +7,8 @@
 
 import Foundation
 
+
+
 var   ListOfActivity: [Activity] = []
     
 var selectedIndex = 0
