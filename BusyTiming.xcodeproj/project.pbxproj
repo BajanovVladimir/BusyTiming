@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0B80F370273E65E800E04BD9 /* ActivityStruc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B80F36F273E65E800E04BD9 /* ActivityStruc.swift */; };
 		0BADDF13272FE07000F9F257 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BADDF12272FE07000F9F257 /* AppDelegate.swift */; };
 		0BADDF15272FE07000F9F257 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BADDF14272FE07000F9F257 /* SceneDelegate.swift */; };
 		0BADDF17272FE07000F9F257 /* TimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BADDF16272FE07000F9F257 /* TimerViewController.swift */; };
@@ -20,6 +21,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0B80F36F273E65E800E04BD9 /* ActivityStruc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityStruc.swift; sourceTree = "<group>"; };
 		0BADDF0F272FE07000F9F257 /* BusyTiming.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BusyTiming.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0BADDF12272FE07000F9F257 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0BADDF14272FE07000F9F257 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -74,6 +76,7 @@
 				0BC3A460273322C100D32B11 /* MainTimerUse.swift */,
 				0BC3A4622733242A00D32B11 /* Protocols.swift */,
 				0BEED335273516DE00DF438B /* ListModel.swift */,
+				0B80F36F273E65E800E04BD9 /* ActivityStruc.swift */,
 			);
 			path = BusyTiming;
 			sourceTree = "<group>";
@@ -161,6 +164,7 @@
 				0BEED3342735168900DF438B /* TableViewListController.swift in Sources */,
 				0BC3A461273322C100D32B11 /* MainTimerUse.swift in Sources */,
 				0BADDF17272FE07000F9F257 /* TimerViewController.swift in Sources */,
+				0B80F370273E65E800E04BD9 /* ActivityStruc.swift in Sources */,
 				0BEED336273516DE00DF438B /* ListModel.swift in Sources */,
 				0BADDF13272FE07000F9F257 /* AppDelegate.swift in Sources */,
 				0BADDF15272FE07000F9F257 /* SceneDelegate.swift in Sources */,

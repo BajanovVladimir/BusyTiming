@@ -22,9 +22,9 @@ class TimerViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        timer.totalTimeInt = ListOfAffairs[selectedIndex]["Time"] as? Int ?? 0
+        timer.totalTimeInt = ListOfActivity[selectedIndex].time
         saveTimerLabel.text = timer.conversionOfTimeFromSecondsToString(timer.totalTimeInt)
-        affairLabel.text =  affairName
+        affairLabel.text =  activityName
         setDisignStartBattons()
         setDisignSaveTimeButtonHide()
     }
