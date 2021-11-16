@@ -31,7 +31,6 @@ class  MainTimerUse {
     
     func calculateTotalTime() {
         totalTimeInt = totalTimeInt + timerResult
-      //  activity.ListOfActivity[activity.selectedIndex].time = totalTimeInt
         totalTimeString  = conversionOfTimeFromSecondsToString(totalTimeInt)
     }
     
@@ -57,7 +56,6 @@ class  MainTimerUse {
     func  timerOff() {
         timer.invalidate()
     }
-    
 }
 
     

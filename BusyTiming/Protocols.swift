@@ -8,7 +8,3 @@
 protocol DisplayTimerProtocol  {
     func  displayTimer(result:String)
 }
-
-
-
-
