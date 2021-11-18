@@ -3,12 +3,12 @@ import UIKit
 class TableViewListController: UITableViewController {
     
     var timer =  MainTimerUse()
-    var activity = ListOfActivityModel()
+    var activity = ActivitiesModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        if activity.ListOfActivity.count > 0 {
-            activity.activityName = activity.ListOfActivity[activity.selectedIndex].name
+        if activity.activity.count > 0 {
+            activity.activityName = activity.activity[activity.selectedIndex].name
         }
     }
     
@@ -38,10 +38,10 @@ class TableViewListController: UITableViewController {
     }
     
     @IBAction func chooseTheActivityButtonPress(_ sender: UIBarButtonItem) {
-        if activity.ListOfActivity.count > 0 {
+        if activity.activity.count > 0 {
             let storyboard    = UIStoryboard(name:"Main",    bundle:   Bundle.main)
             let vc =  storyboard.instantiateViewController(identifier: "TimerVC") as! TimerViewController
-            vc.activity  = activity
+            vc.activity  =  activity
             self.navigationController?.pushViewController(vc, animated: true)
         }
     }
@@ -51,12 +51,12 @@ class TableViewListController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return activity.ListOfActivity.count
+        return activity.activity.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ListCell", for: indexPath)
-        let currentList = activity.ListOfActivity[indexPath.row]
+        let currentList = activity.activity[indexPath.row]
         let currentName = currentList.name
         let currentTime = currentList.time
         let curentTimeString = timer.conversionOfTimeFromSecondsToString(currentTime)

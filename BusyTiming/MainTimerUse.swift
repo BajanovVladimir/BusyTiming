@@ -17,7 +17,7 @@ class  MainTimerUse {
     var totalTimeString  = "00:00:00"
     var timerCounting  = false
     var timerResult = 0
-    var activity = ListOfActivityModel()
+    let activity = ActivitiesModel()
     
     func  timerOn() {
         timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(timerCounter), userInfo: nil, repeats: true)
