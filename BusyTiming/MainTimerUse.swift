@@ -23,6 +23,7 @@ class  MainTimerUse {
         timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(timerCounter), userInfo: nil, repeats: true)
     }
     
+    
     @objc  func  timerCounter() -> Void {
         timerResult = timerResult + 1
         let timeString = conversionOfTimeFromSecondsToString(timerResult)
