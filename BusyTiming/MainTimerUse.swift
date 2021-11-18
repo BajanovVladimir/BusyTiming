@@ -7,7 +7,7 @@
 
 import UIKit
 
-class  MainTimerUse: DisplayTimerDelegat {
+class  MainTimerUse {
     
     var displayTimerDelegat: DisplayTimerProtocol?
     
@@ -17,6 +17,7 @@ class  MainTimerUse: DisplayTimerDelegat {
     var totalTimeString  = "00:00:00"
     var timerCounting  = false
     var timerResult = 0
+    var activity = ListOfActivityModel()
     
     func  timerOn() {
         timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(timerCounter), userInfo: nil, repeats: true)
@@ -30,7 +31,6 @@ class  MainTimerUse: DisplayTimerDelegat {
     
     func calculateTotalTime() {
         totalTimeInt = totalTimeInt + timerResult
-        ListOfActivity[selectedIndex].time = totalTimeInt
         totalTimeString  = conversionOfTimeFromSecondsToString(totalTimeInt)
     }
     
@@ -56,7 +56,6 @@ class  MainTimerUse: DisplayTimerDelegat {
     func  timerOff() {
         timer.invalidate()
     }
-    
 }
 
     
