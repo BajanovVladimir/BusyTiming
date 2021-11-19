@@ -16,7 +16,6 @@
 		0BADDF1F272FE07000F9F257 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0BADDF1D272FE07000F9F257 /* LaunchScreen.storyboard */; };
 		0BC3A461273322C100D32B11 /* MainTimerUse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BC3A460273322C100D32B11 /* MainTimerUse.swift */; };
 		0BC3A4632733242A00D32B11 /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BC3A4622733242A00D32B11 /* Protocols.swift */; };
-		0BEED3342735168900DF438B /* TableViewListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BEED3332735168900DF438B /* TableViewListController.swift */; };
 		0BEED336273516DE00DF438B /* ListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BEED335273516DE00DF438B /* ListModel.swift */; };
 /* End PBXBuildFile section */
 
@@ -32,7 +31,6 @@
 		0BADDF20272FE07000F9F257 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0BC3A460273322C100D32B11 /* MainTimerUse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTimerUse.swift; sourceTree = "<group>"; };
 		0BC3A4622733242A00D32B11 /* Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
-		0BEED3332735168900DF438B /* TableViewListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewListController.swift; sourceTree = "<group>"; };
 		0BEED335273516DE00DF438B /* ListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -84,7 +82,6 @@
 		0BEED33727351D9B00DF438B /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				0BEED3332735168900DF438B /* TableViewListController.swift */,
 				0BADDF16272FE07000F9F257 /* TimerViewController.swift */,
 			);
 			path = ViewControllers;
@@ -161,7 +158,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				0BC3A4632733242A00D32B11 /* Protocols.swift in Sources */,
-				0BEED3342735168900DF438B /* TableViewListController.swift in Sources */,
 				0BC3A461273322C100D32B11 /* MainTimerUse.swift in Sources */,
 				0BADDF17272FE07000F9F257 /* TimerViewController.swift in Sources */,
 				0B80F370273E65E800E04BD9 /* ActivityStruc.swift in Sources */,
