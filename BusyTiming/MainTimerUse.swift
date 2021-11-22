@@ -12,7 +12,6 @@ class  MainTimerUse {
     var displayTimerDelegat: DisplayTimerProtocol?
     
     var timer = Timer()
-    var timerResultValue  = 0
     var totalTimeInt = 0
     var totalTimeString  = "00:00:00"
     var timerCounting  = false
