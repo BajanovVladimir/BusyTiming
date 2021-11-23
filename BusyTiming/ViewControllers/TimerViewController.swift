@@ -30,23 +30,7 @@ class TimerViewController: UIViewController {
         timer.timerOn()
     }
     
-   
-    func setDisignStopBattons () {
-    
-    }
-    
-    func setDisignSaveTimeButtonHide () {
-       
-    }
-    
-    func setDisignSaveTimeButtonShow () {
-      
-    }
-    
-    func setDisignStartBattons () {
-     
-    }
-    func  saveNewActiviti(_ name:String?,_ time: Int) {
+    func  saveNewActivity(_ name:String?,_ time: Int) {
         guard let newName = name else {
             return
         }
@@ -62,32 +46,26 @@ class TimerViewController: UIViewController {
         }
         let alertAction1 = UIAlertAction(title: "Create&Restart timer", style:.default) {
             (alert) in
-            self.saveNewActiviti(alertController.textFields?[0].text,time)
+            self.saveNewActivity(alertController.textFields?[0].text,time)
             self.timer.timerResult = 0
            
         }
-        let alertAction2 = UIAlertAction(title: "Create", style: .cancel) {
-            (alert) in
-            self.saveNewActiviti(alertController.textFields?[0].text,time)
-        }
-        let alertAction3 = UIAlertAction(title: "Cancel", style:.destructive) {
+      
+        let alertAction2 = UIAlertAction(title: "Cancel", style:.destructive) {
             (alert) in
         }
+        
         alertController.addAction(alertAction1)
         alertController.addAction(alertAction2)
-        alertController.addAction(alertAction3)
         present(alertController, animated: true, completion: nil)
     }
 
     @IBAction func startStopButtonPress(_ sender: UIButton) {
         if timerCounting {
-            setDisignStartBattons()
-            setDisignSaveTimeButtonShow()
             timerCounting = false
             timer.timer.invalidate()
             timer.calculateTotalTime()
         } else {
-            setDisignStopBattons()
             timer.timerResult = 0
             timer.displayTimerDelegat = self
             timerCounting = true
@@ -120,12 +98,8 @@ extension    TimerViewController: DisplayTimerProtocol, UITableViewDataSource, U
         let currentTime = currentList.time
         let curentTimeString = timer.conversionOfTimeFromSecondsToString(currentTime)
         cell.textLabel?.text = currentName + "     " + curentTimeString
-        if currentList.isSelected == true {
-            cell.accessoryType = .checkmark
-        } else {
-            cell.accessoryType = .none
-        }
-        return cell    }
+        return cell
+    }
     
      func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
    
