@@ -7,6 +7,8 @@
 
 import UIKit
 
+var timerResult = 0
+
 class  MainTimerUse {
     
     var displayTimerDelegat: DisplayTimerProtocol?
@@ -15,7 +17,6 @@ class  MainTimerUse {
     var totalTimeInt = 0
     var totalTimeString  = "00:00:00"
     var timerCounting  = false
-    var timerResult = 0
     let activity = ActivitiesModel()
     
     func  timerOn() {
