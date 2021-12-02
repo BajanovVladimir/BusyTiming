@@ -13,8 +13,7 @@ class TimerVM {
     var timerValueString = ""
     var timerValueInt = 0 {
         didSet {
-            let time = convertFromSecondsToHoursMinutesSeconds(timerValueInt)
-            timerValueString  = convertFromTimeToString(hours: time.0, minutes: time.1, seconds: time.2)
+            timerValueString = conversionOfTimeFromSecondsToString(timerValueInt)
             timerDelegate?.displayTimer(result: timerValueString)
         }
     }
@@ -32,5 +31,10 @@ class TimerVM {
             timeString += String(format: "%02d",  seconds)
             return  timeString
         }
-        
+    
+    func conversionOfTimeFromSecondsToString(_ time: Int) -> String {
+        let time = convertFromSecondsToHoursMinutesSeconds(time)
+        return  convertFromTimeToString(hours: time.0, minutes: time.1, seconds: time.2)
     }
+    
+}

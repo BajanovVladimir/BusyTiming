@@ -9,9 +9,8 @@ import UIKit
 
 class TimerViewController: UIViewController {
 
-    var timerCounting = false
-    var timer = MainTimerUse()
-    var i = 0
+    let timerModel = TimerModel()
+    var timerVM  = TimerVM()
     let activity = ActivitiesModel()
     var selectedIndex = 0
     
@@ -22,6 +21,11 @@ class TimerViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        timerVM = timerModel.timerVM
+        timerVM.timerDelegate = self
+        timerModel.timerOn()
+        
+        
        
     }
     
@@ -34,7 +38,8 @@ class TimerViewController: UIViewController {
     }
     
     @IBAction func  addActivityButtonPressed(_ sender: UIButton){
-        let time = timerResult
+        timerModel.lastTimePoint = Date().timeIntervalSince1970
+        let time = timerVM.timerValueInt
         let alertController = UIAlertController(title: "Enter the name of  the affair", message: "", preferredStyle: .alert)
         alertController.addTextField { (textField) in
             textField.placeholder = "New affair"
@@ -42,7 +47,6 @@ class TimerViewController: UIViewController {
         let alertAction1 = UIAlertAction(title: "Create", style:.default) {
             (alert) in
             self.saveNewActivity(alertController.textFields?[0].text,time)
-            timerResult = 0
            
         }
       
@@ -72,7 +76,7 @@ extension    TimerViewController: DisplayTimerProtocol, UITableViewDataSource, U
         let currentList = activity.activity[indexPath.row]
         let currentName = currentList.name
         let currentTime = currentList.time
-        let curentTimeString = timer.conversionOfTimeFromSecondsToString(currentTime)
+        let curentTimeString = timerVM.conversionOfTimeFromSecondsToString(currentTime)
         cell.textLabel?.text = currentName + "     " + curentTimeString
         return cell
     }

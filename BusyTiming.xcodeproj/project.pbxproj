@@ -16,7 +16,6 @@
 		0BADDF1A272FE07000F9F257 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0BADDF18272FE07000F9F257 /* Main.storyboard */; };
 		0BADDF1C272FE07000F9F257 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0BADDF1B272FE07000F9F257 /* Assets.xcassets */; };
 		0BADDF1F272FE07000F9F257 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0BADDF1D272FE07000F9F257 /* LaunchScreen.storyboard */; };
-		0BC3A461273322C100D32B11 /* MainTimerUse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BC3A460273322C100D32B11 /* MainTimerUse.swift */; };
 		0BC3A4632733242A00D32B11 /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BC3A4622733242A00D32B11 /* Protocols.swift */; };
 		0BEED336273516DE00DF438B /* ListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BEED335273516DE00DF438B /* ListModel.swift */; };
 /* End PBXBuildFile section */
@@ -33,7 +32,6 @@
 		0BADDF1B272FE07000F9F257 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0BADDF1E272FE07000F9F257 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0BADDF20272FE07000F9F257 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		0BC3A460273322C100D32B11 /* MainTimerUse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTimerUse.swift; sourceTree = "<group>"; };
 		0BC3A4622733242A00D32B11 /* Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
 		0BEED335273516DE00DF438B /* ListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -75,7 +73,6 @@
 				0BADDF1B272FE07000F9F257 /* Assets.xcassets */,
 				0BADDF1D272FE07000F9F257 /* LaunchScreen.storyboard */,
 				0BADDF20272FE07000F9F257 /* Info.plist */,
-				0BC3A460273322C100D32B11 /* MainTimerUse.swift */,
 				0BC3A4622733242A00D32B11 /* Protocols.swift */,
 				0BEED335273516DE00DF438B /* ListModel.swift */,
 				0B80F36F273E65E800E04BD9 /* ActivityStruct.swift */,
@@ -164,7 +161,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				0BC3A4632733242A00D32B11 /* Protocols.swift in Sources */,
-				0BC3A461273322C100D32B11 /* MainTimerUse.swift in Sources */,
 				0BADDF17272FE07000F9F257 /* TimerViewController.swift in Sources */,
 				0B80F370273E65E800E04BD9 /* ActivityStruct.swift in Sources */,
 				0B75398D2758BBC20045F69B /* TimerVM.swift in Sources */,
