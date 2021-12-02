@@ -18,15 +18,11 @@ class TimerViewController: UIViewController {
    
     @IBOutlet weak var timerLabel: UILabel!
 
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         timerVM = timerModel.timerVM
         timerVM.timerDelegate = self
         timerModel.timerOn()
-        
-        
-       
     }
     
     func  saveNewActivity(_ name:String?,_ time: Int) {
@@ -47,13 +43,10 @@ class TimerViewController: UIViewController {
         let alertAction1 = UIAlertAction(title: "Create", style:.default) {
             (alert) in
             self.saveNewActivity(alertController.textFields?[0].text,time)
-           
         }
-      
         let alertAction2 = UIAlertAction(title: "Cancel", style:.destructive) {
             (alert) in
         }
-        
         alertController.addAction(alertAction1)
         alertController.addAction(alertAction2)
         alertController.view.layoutIfNeeded()
@@ -82,7 +75,6 @@ extension    TimerViewController: DisplayTimerProtocol, UITableViewDataSource, U
     }
     
      func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-   
         if editingStyle == .delete {
             activity.deleteActivity(index: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)

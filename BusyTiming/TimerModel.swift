@@ -7,7 +7,6 @@
 
 import Foundation
 
-
 class TimerModel {
     var timer = Timer()
     var timerVM  = TimerVM()
