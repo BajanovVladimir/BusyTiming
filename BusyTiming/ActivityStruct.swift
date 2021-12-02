@@ -15,6 +15,6 @@ struct Activity {
     init(nameInit: String, selectedInit:Bool, timeInit:Int) {
       name = nameInit
       isSelected = selectedInit
-        time = timeInit
+      time = timeInit
     }
 }

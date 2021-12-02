@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0B75398B2758BBB00045F69B /* TimerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B75398A2758BBB00045F69B /* TimerModel.swift */; };
+		0B75398D2758BBC20045F69B /* TimerVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B75398C2758BBC20045F69B /* TimerVM.swift */; };
 		0B80F370273E65E800E04BD9 /* ActivityStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B80F36F273E65E800E04BD9 /* ActivityStruct.swift */; };
 		0BADDF13272FE07000F9F257 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BADDF12272FE07000F9F257 /* AppDelegate.swift */; };
 		0BADDF15272FE07000F9F257 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BADDF14272FE07000F9F257 /* SceneDelegate.swift */; };
@@ -20,6 +22,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0B75398A2758BBB00045F69B /* TimerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerModel.swift; sourceTree = "<group>"; };
+		0B75398C2758BBC20045F69B /* TimerVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerVM.swift; sourceTree = "<group>"; };
 		0B80F36F273E65E800E04BD9 /* ActivityStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityStruct.swift; sourceTree = "<group>"; };
 		0BADDF0F272FE07000F9F257 /* BusyTiming.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BusyTiming.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0BADDF12272FE07000F9F257 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -75,6 +79,8 @@
 				0BC3A4622733242A00D32B11 /* Protocols.swift */,
 				0BEED335273516DE00DF438B /* ListModel.swift */,
 				0B80F36F273E65E800E04BD9 /* ActivityStruct.swift */,
+				0B75398A2758BBB00045F69B /* TimerModel.swift */,
+				0B75398C2758BBC20045F69B /* TimerVM.swift */,
 			);
 			path = BusyTiming;
 			sourceTree = "<group>";
@@ -161,7 +167,9 @@
 				0BC3A461273322C100D32B11 /* MainTimerUse.swift in Sources */,
 				0BADDF17272FE07000F9F257 /* TimerViewController.swift in Sources */,
 				0B80F370273E65E800E04BD9 /* ActivityStruct.swift in Sources */,
+				0B75398D2758BBC20045F69B /* TimerVM.swift in Sources */,
 				0BEED336273516DE00DF438B /* ListModel.swift in Sources */,
+				0B75398B2758BBB00045F69B /* TimerModel.swift in Sources */,
 				0BADDF13272FE07000F9F257 /* AppDelegate.swift in Sources */,
 				0BADDF15272FE07000F9F257 /* SceneDelegate.swift in Sources */,
 			);

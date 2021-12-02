@@ -16,18 +16,13 @@ class TimerViewController: UIViewController {
     var selectedIndex = 0
     
     @IBOutlet weak var activitiesTableView: UITableView!
-    @IBOutlet weak var startStopButton: UIButton!
+   
     @IBOutlet weak var timerLabel: UILabel!
-    @IBOutlet weak var saveTimerLabel: UILabel!
-    @IBOutlet weak var saveTimerButton: UIButton!
-    @IBOutlet weak var activityLabel: UILabel!
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        timerResult = 0
-        timer.displayTimerDelegat = self
-        timerCounting = true
-        timer.timerOn()
+       
     }
     
     func  saveNewActivity(_ name:String?,_ time: Int) {
@@ -59,26 +54,6 @@ class TimerViewController: UIViewController {
         alertController.addAction(alertAction2)
         alertController.view.layoutIfNeeded()
         present(alertController, animated: true, completion: nil)
-    }
-
-    @IBAction func startStopButtonPress(_ sender: UIButton) {
-        if timerCounting {
-            timerCounting = false
-            timer.timer.invalidate()
-            timer.calculateTotalTime()
-        } else {
-            timerResult = 0
-            timer.displayTimerDelegat = self
-            timerCounting = true
-            timer.timerOn()
-        }
-    }
-    
-    @IBAction func saveTimeButtonPressed(_ sender: UIButton) {
-        if !timerCounting {
-            saveTimerLabel.text = timer.totalTimeString
-            activity.activity[selectedIndex].time = timer.totalTimeInt
-        }
     }
 }
 
