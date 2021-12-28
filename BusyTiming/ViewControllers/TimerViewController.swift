@@ -36,9 +36,9 @@ class TimerViewController: UIViewController {
     @IBAction func  addActivityButtonPressed(_ sender: UIButton){
         timerModel.lastTimePoint = Date().timeIntervalSince1970
         let time = timerVM.timerValueInt
-        let alertController = UIAlertController(title: "Enter the name of  the affair", message: "", preferredStyle: .alert)
+        let alertController = UIAlertController(title: "Enter the name of  the Activity", message: "", preferredStyle: .alert)
         alertController.addTextField { (textField) in
-            textField.placeholder = "New affair"
+            textField.placeholder = "New Activity"
         }
         let alertAction1 = UIAlertAction(title: "Create", style:.default) {
             (alert) in
