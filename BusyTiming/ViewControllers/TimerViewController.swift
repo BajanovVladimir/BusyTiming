@@ -8,10 +8,27 @@
 import UIKit
 import Combine
 
+
+
+/*
+ 
+ @IBOutlet weak var timerLabel: UILabel!
+ 
+ @IBOutlet weak var saveActyvityButton: UIButton!
+
+ override func viewDidLoad() {
+     super.viewDidLoad()
+     timerStart()
+ }
+ 
+ 
+ */
+
 class TimerViewController: UIViewController {
 
-    let timerModel = TimerModel()
-    var timerVM  = TimerVM()
+    private var timerSubscription:AnyCancellable?
+    let timerVM = TimerVM()
+    
     let activity = ActivitiesModel()
     var selectedIndex = 0
     
@@ -21,9 +38,18 @@ class TimerViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        timerVM = timerModel.timerVM
-        timerVM.timerDelegate = self
-        timerModel.timerOn()
+        timerStart()
+    }
+    
+    func timerStart () {
+         timerSubscription = Timer.publish(every: 1, on: .main, in: .common)
+        .autoconnect()
+        .scan(0,{(time, _) in
+        return time+1
+        })
+        .sink(receiveValue: { [self] _ in
+            timerLabel.text = timerVM.getCurrentTimeInString()
+        })
     }
     
     func  saveNewActivity(_ name:String?,_ time: Int) {
@@ -35,7 +61,7 @@ class TimerViewController: UIViewController {
     }
     
     @IBAction func  addActivityButtonPressed(_ sender: UIButton){
-        timerModel.lastTimePoint = Date().timeIntervalSince1970
+        timerVM.timerModel.lastTimePoint = Date().timeIntervalSince1970
         let time = timerVM.timerValueInt
         let alertController = UIAlertController(title: "Enter the name of  the Activity", message: "", preferredStyle: .alert)
         alertController.addTextField { (textField) in
@@ -70,7 +96,7 @@ extension    TimerViewController: DisplayTimerProtocol, UITableViewDataSource, U
         let currentList = activity.activity[indexPath.row]
         let currentName = currentList.name
         let currentTime = currentList.time
-        let curentTimeString = timerVM.conversionOfTimeFromSecondsToString(currentTime)
+        let curentTimeString = currentTime.formatTime
         cell.textLabel?.text = currentName + "     " + curentTimeString
         return cell
     }
