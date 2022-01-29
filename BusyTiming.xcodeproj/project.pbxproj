@@ -18,6 +18,8 @@
 		0BADDF1F272FE07000F9F257 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0BADDF1D272FE07000F9F257 /* LaunchScreen.storyboard */; };
 		0BC3A4632733242A00D32B11 /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BC3A4622733242A00D32B11 /* Protocols.swift */; };
 		0BEED336273516DE00DF438B /* ListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BEED335273516DE00DF438B /* ListModel.swift */; };
+		B566BCE427A45F9E00863082 /* NewActivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B566BCE327A45F9E00863082 /* NewActivityViewController.swift */; };
+		B566BCE627A45FB400863082 /* NewActivityViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B566BCE527A45FB400863082 /* NewActivityViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +36,8 @@
 		0BADDF20272FE07000F9F257 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0BC3A4622733242A00D32B11 /* Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
 		0BEED335273516DE00DF438B /* ListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListModel.swift; sourceTree = "<group>"; };
+		B566BCE327A45F9E00863082 /* NewActivityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewActivityViewController.swift; sourceTree = "<group>"; };
+		B566BCE527A45FB400863082 /* NewActivityViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewActivityViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +70,8 @@
 		0BADDF11272FE07000F9F257 /* BusyTiming */ = {
 			isa = PBXGroup;
 			children = (
+				B566BCE227A45F6C00863082 /* NewActivitiPage */,
+				B566BCE127A45F4E00863082 /* HomePage */,
 				0BADDF12272FE07000F9F257 /* AppDelegate.swift */,
 				0BADDF14272FE07000F9F257 /* SceneDelegate.swift */,
 				0BEED33727351D9B00DF438B /* ViewControllers */,
@@ -76,8 +82,6 @@
 				0BC3A4622733242A00D32B11 /* Protocols.swift */,
 				0BEED335273516DE00DF438B /* ListModel.swift */,
 				0B80F36F273E65E800E04BD9 /* ActivityStruct.swift */,
-				0B75398A2758BBB00045F69B /* TimerModel.swift */,
-				0B75398C2758BBC20045F69B /* TimerVM.swift */,
 			);
 			path = BusyTiming;
 			sourceTree = "<group>";
@@ -85,9 +89,27 @@
 		0BEED33727351D9B00DF438B /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				0BADDF16272FE07000F9F257 /* TimerViewController.swift */,
 			);
 			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		B566BCE127A45F4E00863082 /* HomePage */ = {
+			isa = PBXGroup;
+			children = (
+				0BADDF16272FE07000F9F257 /* TimerViewController.swift */,
+				0B75398C2758BBC20045F69B /* TimerVM.swift */,
+				0B75398A2758BBB00045F69B /* TimerModel.swift */,
+			);
+			path = HomePage;
+			sourceTree = "<group>";
+		};
+		B566BCE227A45F6C00863082 /* NewActivitiPage */ = {
+			isa = PBXGroup;
+			children = (
+				B566BCE327A45F9E00863082 /* NewActivityViewController.swift */,
+				B566BCE527A45FB400863082 /* NewActivityViewModel.swift */,
+			);
+			path = NewActivitiPage;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -162,7 +184,9 @@
 			files = (
 				0BC3A4632733242A00D32B11 /* Protocols.swift in Sources */,
 				0BADDF17272FE07000F9F257 /* TimerViewController.swift in Sources */,
+				B566BCE427A45F9E00863082 /* NewActivityViewController.swift in Sources */,
 				0B80F370273E65E800E04BD9 /* ActivityStruct.swift in Sources */,
+				B566BCE627A45FB400863082 /* NewActivityViewModel.swift in Sources */,
 				0B75398D2758BBC20045F69B /* TimerVM.swift in Sources */,
 				0BEED336273516DE00DF438B /* ListModel.swift in Sources */,
 				0B75398B2758BBB00045F69B /* TimerModel.swift in Sources */,
