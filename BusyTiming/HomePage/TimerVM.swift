@@ -44,7 +44,10 @@ class TimerVM {
     func timerStop() {
         cancellable?.cancel()
     }
-
+    
+    func timerReset(){
+        timerModel.lastTimerMarkerReset()
+    }
     private func duration(from date: Date) -> Int {
         let currentTime = date.timeIntervalSince1970
         return Int(round(currentTime - timerModel.lastTimeMarker.timeIntervalSince1970))

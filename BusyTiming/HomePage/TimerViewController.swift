@@ -26,6 +26,17 @@ import Combine
 
 class TimerViewController: UIViewController {
 
+    private struct Constants {
+        static let NewActivityVCKey = "NewActivitiVC"
+        static let ActivitiesCellKey = "ActivitiesCell"
+    }
+    
+    lazy var newActivityVC: NewActivityViewController = {
+        let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+        var viewController = storyboard.instantiateViewController(withIdentifier: Constants.NewActivityVCKey) as! NewActivityViewController
+        return viewController
+    }()
+    
     let timerVM = TimerVM()
     
     let activity = ActivitiesModel()
@@ -96,8 +107,10 @@ class TimerViewController: UIViewController {
 //        alertController.addAction(alertAction2)
 //        alertController.view.layoutIfNeeded()
 //        present(alertController, animated: true, completion: nil)
-
-        show(NewActivityViewController(), sender: nil);
+        timerVM.timerReset()
+        newActivityVC.modalPresentationStyle = .fullScreen
+        newActivityVC.modalTransitionStyle = .coverVertical
+        show(newActivityVC, sender: nil);
     }
 }
 
@@ -112,7 +125,7 @@ extension TimerViewController: DisplayTimerProtocol, UITableViewDataSource, UITa
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "ActivitiesCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: Constants.ActivitiesCellKey, for: indexPath)
         let currentList = activity.activity[indexPath.row]
         let currentName = currentList.name
         let currentTime = currentList.time

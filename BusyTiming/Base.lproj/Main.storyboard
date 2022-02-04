@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="z2r-z1-Ycn">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="z2r-z1-Ycn">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -56,7 +57,7 @@
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ActivitiesCell" id="Cpe-Kc-CfO">
-                                        <rect key="frame" x="0.0" y="24.5" width="414" height="43.5"/>
+                                        <rect key="frame" x="0.0" y="44.5" width="414" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Cpe-Kc-CfO" id="Fhp-Ge-UfQ">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
@@ -90,6 +91,85 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8Ld-K7-CzU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="105.79710144927537" y="146.65178571428569"/>
+        </scene>
+        <!--New Activity View Controller-->
+        <scene sceneID="VyX-Sr-NU5">
+            <objects>
+                <viewController storyboardIdentifier="NewActivitiVC" id="QEP-WE-6Of" customClass="NewActivityViewController" customModule="BusyTiming" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="wCL-tP-qfr">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Activity duration time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ed6-SN-F08">
+                                <rect key="frame" x="70.5" y="99" width="273" height="36"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mdO-Cb-mx4">
+                                <rect key="frame" x="144" y="155" width="126" height="36"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Actyvity name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0pF-a4-15R">
+                                <rect key="frame" x="115.5" y="241" width="183.5" height="36"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4TP-fP-R26">
+                                <rect key="frame" x="261" y="377" width="56" height="31"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Save"/>
+                                <connections>
+                                    <action selector="saveButtonPressed:" destination="QEP-WE-6Of" eventType="touchUpInside" id="GFX-GL-GA9"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HHp-Jb-kOW">
+                                <rect key="frame" x="97" y="297" width="220" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="220" id="OTL-Qr-xbY"/>
+                                    <constraint firstAttribute="height" constant="50" id="aY1-8s-qvQ"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GAj-HX-1AP">
+                                <rect key="frame" x="97" y="377" width="69" height="31"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Cancel"/>
+                                <connections>
+                                    <action selector="cancelButtonPressed:" destination="QEP-WE-6Of" eventType="touchUpInside" id="f4v-r4-Umu"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Xy3-hM-AI0"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="GAj-HX-1AP" firstAttribute="top" secondItem="HHp-Jb-kOW" secondAttribute="bottom" constant="30" id="2Q4-Pg-E1O"/>
+                            <constraint firstItem="0pF-a4-15R" firstAttribute="top" secondItem="mdO-Cb-mx4" secondAttribute="bottom" constant="50" id="85Y-BD-Kwk"/>
+                            <constraint firstItem="4TP-fP-R26" firstAttribute="leading" secondItem="GAj-HX-1AP" secondAttribute="trailing" constant="95" id="A1Y-Yp-oK1"/>
+                            <constraint firstItem="0pF-a4-15R" firstAttribute="centerX" secondItem="Xy3-hM-AI0" secondAttribute="centerX" id="Hma-iL-lTi"/>
+                            <constraint firstItem="HHp-Jb-kOW" firstAttribute="centerX" secondItem="Xy3-hM-AI0" secondAttribute="centerX" id="Wbw-gd-XLg"/>
+                            <constraint firstItem="4TP-fP-R26" firstAttribute="top" secondItem="HHp-Jb-kOW" secondAttribute="bottom" constant="30" id="bVf-pb-keo"/>
+                            <constraint firstItem="ed6-SN-F08" firstAttribute="centerX" secondItem="Xy3-hM-AI0" secondAttribute="centerX" id="bYU-0D-L74"/>
+                            <constraint firstItem="HHp-Jb-kOW" firstAttribute="top" secondItem="0pF-a4-15R" secondAttribute="bottom" constant="20" id="brh-EN-QVQ"/>
+                            <constraint firstItem="mdO-Cb-mx4" firstAttribute="centerX" secondItem="Xy3-hM-AI0" secondAttribute="centerX" id="er8-Zn-YkZ"/>
+                            <constraint firstItem="mdO-Cb-mx4" firstAttribute="top" secondItem="ed6-SN-F08" secondAttribute="bottom" constant="20" id="i7p-fL-tuG"/>
+                            <constraint firstItem="ed6-SN-F08" firstAttribute="top" secondItem="Xy3-hM-AI0" secondAttribute="top" constant="55" id="qow-7w-syI"/>
+                            <constraint firstItem="GAj-HX-1AP" firstAttribute="leading" secondItem="Xy3-hM-AI0" secondAttribute="leading" constant="97" id="ujD-cf-2QE"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="activityNameTextField" destination="HHp-Jb-kOW" id="9gi-OC-z6C"/>
+                        <outlet property="activityTimeLabel" destination="mdO-Cb-mx4" id="jXp-Ux-iz7"/>
+                        <outlet property="saveButton" destination="4TP-fP-R26" id="C8w-SA-tOH"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sK4-5X-EO2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="966.66666666666674" y="146.65178571428569"/>
         </scene>
     </scenes>
     <resources>

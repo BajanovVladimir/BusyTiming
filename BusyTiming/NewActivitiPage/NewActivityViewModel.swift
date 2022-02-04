@@ -12,9 +12,12 @@ class NewActivityViewModel {
 
     var newActivityStartDate: Date
     var newActivityEndDate: Date
-
-    init() {
+    let time: Double
+    
+   init() {
         newActivityStartDate = model.lastTimeMarker
         newActivityEndDate = Date()
+       time = Double ( newActivityEndDate.timeIntervalSince1970 - newActivityStartDate.timeIntervalSince1970)
     }
+    
 }
