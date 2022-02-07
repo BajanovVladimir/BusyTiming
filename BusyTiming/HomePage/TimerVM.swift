@@ -12,7 +12,7 @@ import Combine
 class TimerVM {
 
     // ***** Note that model property is `private`, so view cannot access it.
-    private let timerModel = TimerModel()
+    private let timerModel = LastTimePoint()
     var durationString: AnyPublisher<String, Never> {
         durationStringSubject.eraseToAnyPublisher()
     }

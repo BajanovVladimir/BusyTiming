@@ -9,7 +9,7 @@ import Foundation
 
 // ***** I kept it 'TimerModel' for now to not confuse you as you are familiar with this name.
 // ***** Later it should be renamed to something like SavedTimePointRepository
-class TimerModel {
+class LastTimePoint {
 
     private struct Constants {
         static let lastTimeMarkerKey = "lastTimeMarkerKey"
@@ -41,5 +41,4 @@ class TimerModel {
         
     }
 }
-
 
