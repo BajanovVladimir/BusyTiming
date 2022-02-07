@@ -8,16 +8,24 @@
 import Foundation
 
 class NewActivityViewModel {
-    private let model = LastTimePoint() // That's why TimerModel should be renamed. It may be reused so it should have more generic name.
-
-    var newActivityStartDate: Date
-    var newActivityEndDate: Date
-    let time: Double
     
-   init() {
-        newActivityStartDate = model.lastTimeMarker
-        newActivityEndDate = Date()
-       time = Double ( newActivityEndDate.timeIntervalSince1970 - newActivityStartDate.timeIntervalSince1970)
+    private let lastTimePoint = LastTimePoint()
+    let activity = ActivitiesModel()
+    var time = 0
+ 
+    func getTimeActivity() -> String {
+        let newActivityStartDate = lastTimePoint.lastTimeMarker
+        let newActivityEndDate = Date()
+         time = Int(newActivityEndDate.timeIntervalSince1970 - newActivityStartDate.timeIntervalSince1970)
+        return time.formatTime
     }
     
+    func  saveNewActivity(_ name:String?,_ time: Int) {
+            guard let newName = name else {
+                return
+            }
+           activity.addActivity(nameOfActivity: newName, time: time)
+        lastTimePoint.lastTimerMarkerReset()
+        }
 }
+
