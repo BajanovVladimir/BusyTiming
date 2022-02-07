@@ -19,6 +19,7 @@
 		0BADDF1F272FE07000F9F257 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0BADDF1D272FE07000F9F257 /* LaunchScreen.storyboard */; };
 		0BC3A4632733242A00D32B11 /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BC3A4622733242A00D32B11 /* Protocols.swift */; };
 		0BEED336273516DE00DF438B /* ListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BEED335273516DE00DF438B /* ListModel.swift */; };
+		3E29DCF8B4B104ADA972C488 /* Pods_BusyTiming.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6ADA9C94DB5F36E419B0CE1A /* Pods_BusyTiming.framework */; };
 		B566BCE427A45F9E00863082 /* NewActivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B566BCE327A45F9E00863082 /* NewActivityViewController.swift */; };
 		B566BCE627A45FB400863082 /* NewActivityViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B566BCE527A45FB400863082 /* NewActivityViewModel.swift */; };
 /* End PBXBuildFile section */
@@ -38,6 +39,9 @@
 		0BADDF20272FE07000F9F257 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0BC3A4622733242A00D32B11 /* Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
 		0BEED335273516DE00DF438B /* ListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListModel.swift; sourceTree = "<group>"; };
+		4003CFE9A20D4393BD419063 /* Pods-BusyTiming.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BusyTiming.debug.xcconfig"; path = "Target Support Files/Pods-BusyTiming/Pods-BusyTiming.debug.xcconfig"; sourceTree = "<group>"; };
+		601A4777F5AEF2C356B76AB7 /* Pods-BusyTiming.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BusyTiming.release.xcconfig"; path = "Target Support Files/Pods-BusyTiming/Pods-BusyTiming.release.xcconfig"; sourceTree = "<group>"; };
+		6ADA9C94DB5F36E419B0CE1A /* Pods_BusyTiming.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BusyTiming.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B566BCE327A45F9E00863082 /* NewActivityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewActivityViewController.swift; sourceTree = "<group>"; };
 		B566BCE527A45FB400863082 /* NewActivityViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewActivityViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -47,6 +51,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3E29DCF8B4B104ADA972C488 /* Pods_BusyTiming.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -59,6 +64,8 @@
 				0B13DB9B27B109EB00FFA054 /* Podfile */,
 				0BADDF11272FE07000F9F257 /* BusyTiming */,
 				0BADDF10272FE07000F9F257 /* Products */,
+				F06F79D38B9B5CDC288CCE8F /* Pods */,
+				1FF43087BC6EA5E39E7E07D2 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -96,6 +103,14 @@
 			path = ViewControllers;
 			sourceTree = "<group>";
 		};
+		1FF43087BC6EA5E39E7E07D2 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				6ADA9C94DB5F36E419B0CE1A /* Pods_BusyTiming.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		B566BCE127A45F4E00863082 /* HomePage */ = {
 			isa = PBXGroup;
 			children = (
@@ -115,6 +130,16 @@
 			path = NewActivitiPage;
 			sourceTree = "<group>";
 		};
+		F06F79D38B9B5CDC288CCE8F /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				4003CFE9A20D4393BD419063 /* Pods-BusyTiming.debug.xcconfig */,
+				601A4777F5AEF2C356B76AB7 /* Pods-BusyTiming.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -122,9 +147,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0BADDF23272FE07000F9F257 /* Build configuration list for PBXNativeTarget "BusyTiming" */;
 			buildPhases = (
+				B534FA90D2F11989856E565A /* [CP] Check Pods Manifest.lock */,
 				0BADDF0B272FE07000F9F257 /* Sources */,
 				0BADDF0C272FE07000F9F257 /* Frameworks */,
 				0BADDF0D272FE07000F9F257 /* Resources */,
+				24A6F8AB26D3A738AF4E8C2A /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -180,6 +207,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		24A6F8AB26D3A738AF4E8C2A /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-BusyTiming/Pods-BusyTiming-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-BusyTiming/Pods-BusyTiming-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-BusyTiming/Pods-BusyTiming-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B534FA90D2F11989856E565A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-BusyTiming-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		0BADDF0B272FE07000F9F257 /* Sources */ = {
@@ -339,6 +408,7 @@
 		};
 		0BADDF24272FE07000F9F257 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4003CFE9A20D4393BD419063 /* Pods-BusyTiming.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -357,6 +427,7 @@
 		};
 		0BADDF25272FE07000F9F257 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 601A4777F5AEF2C356B76AB7 /* Pods-BusyTiming.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

@@ -1,6 +1,6 @@
 platform :ios, '10'
 use_frameworks!
 
-target 'Timer' do
+target 'BusyTiming' do
 pod 'RealmSwift'
 end
