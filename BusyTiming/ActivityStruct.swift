@@ -5,16 +5,10 @@
 //  Created by Владимир Бажанов on 11/12/21.
 //
 
-import Foundation
+import RealmSwift
 
-struct Activity {
-    var name: String
-    var isSelected:  Bool
-    var time: Int
-    
-    init(nameInit: String, selectedInit:Bool, timeInit:Int) {
-      name = nameInit
-      isSelected = selectedInit
-      time = timeInit
-    }
+ class Activity: Object {
+     @objc dynamic var name: String = ""
+     @objc dynamic var isSelected:  Bool = false
+     @objc dynamic var time: Int = 0
 }
