@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0B13DB9C27B109EB00FFA054 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 0B13DB9B27B109EB00FFA054 /* Podfile */; };
 		0B75398B2758BBB00045F69B /* TimerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B75398A2758BBB00045F69B /* TimerModel.swift */; };
 		0B75398D2758BBC20045F69B /* TimerVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B75398C2758BBC20045F69B /* TimerVM.swift */; };
 		0B80F370273E65E800E04BD9 /* ActivityStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B80F36F273E65E800E04BD9 /* ActivityStruct.swift */; };
@@ -23,6 +24,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0B13DB9B27B109EB00FFA054 /* Podfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
 		0B75398A2758BBB00045F69B /* TimerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerModel.swift; sourceTree = "<group>"; };
 		0B75398C2758BBC20045F69B /* TimerVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerVM.swift; sourceTree = "<group>"; };
 		0B80F36F273E65E800E04BD9 /* ActivityStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityStruct.swift; sourceTree = "<group>"; };
@@ -54,6 +56,7 @@
 		0BADDF06272FE07000F9F257 = {
 			isa = PBXGroup;
 			children = (
+				0B13DB9B27B109EB00FFA054 /* Podfile */,
 				0BADDF11272FE07000F9F257 /* BusyTiming */,
 				0BADDF10272FE07000F9F257 /* Products */,
 			);
@@ -171,6 +174,7 @@
 			files = (
 				0BADDF1F272FE07000F9F257 /* LaunchScreen.storyboard in Resources */,
 				0BADDF1C272FE07000F9F257 /* Assets.xcassets in Resources */,
+				0B13DB9C27B109EB00FFA054 /* Podfile in Resources */,
 				0BADDF1A272FE07000F9F257 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
