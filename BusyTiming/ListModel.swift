@@ -10,7 +10,7 @@ import RealmSwift
 
 class ActivitiesModel  {
 
-    var activityBase: Results <Activity>!
+    var activitiesViewModel: Results <Activity>!
     var selectedIndex = 0
     var activityName = ""
     var activityTime  = 0
@@ -23,14 +23,14 @@ class ActivitiesModel  {
     init() {
         do{
             let realm = try Realm()
-            self.activityBase = realm.objects(Activity.self)
+            self.activitiesViewModel = realm.objects(Activity.self)
         }
         catch {
             print(ErrorBase.ErrorInitBase)
         }
     }
     
-    func addActivity(nameOfActivity: String, isCompleted:Bool = false, time:Int = 0) {
+    func addActivity(nameOfActivity: String, time:Int = 0) {
         let activity = Activity()
         activity.name = nameOfActivity
         activity.time = time
@@ -47,7 +47,7 @@ class ActivitiesModel  {
     func deleteActivity(index: Int){
         do {
             let realm = try Realm()
-            let activity = activityBase[index]
+            let activity = activitiesViewModel[index]
             try realm.write {
             realm.delete(activity)
             }
