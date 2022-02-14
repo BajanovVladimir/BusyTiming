@@ -50,9 +50,13 @@ class NewActivityViewController: UIViewController {
      }
      
      @IBAction func saveButtonPressed(_ sender: UIButton) {
-         let name = activityNameTextField.text
-         viewModel.saveNewActivity(name, viewModel.time)
+         let activitiesModel = ActivitiesModel()
+         guard let newName = activityNameTextField.text  else {
+             return
+         }
+         activitiesModel.addActivity(nameOfActivity: newName, time: viewModel.time)
          activityNameTextField.text = ""
+         viewModel.lastTimePoint.lastTimerMarkerReset()
          dismiss(animated: true, completion: nil)
      }
  }

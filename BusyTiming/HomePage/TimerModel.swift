@@ -35,6 +35,7 @@ class LastTimePoint {
     private func updateValueInUserDefaults(newValue: Double) {
         UserDefaults.standard.set(newValue, forKey: Constants.lastTimeMarkerKey)
     }
+    
     func lastTimerMarkerReset(){
         UserDefaults.standard.removeObject(forKey: Constants.lastTimeMarkerKey)
         UserDefaults.standard.synchronize()

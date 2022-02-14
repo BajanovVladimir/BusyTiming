@@ -9,7 +9,7 @@ import Foundation
 
 class NewActivityViewModel {
     
-    private let lastTimePoint = LastTimePoint()
+    let lastTimePoint = LastTimePoint()
     let activity = ActivitiesModel()
     var time = 0
  
@@ -20,12 +20,5 @@ class NewActivityViewModel {
         return time.formatTime
     }
     
-    func  saveNewActivity(_ name:String?,_ time: Int) {
-            guard let newName = name else {
-                return
-            }
-        activity.addActivity(nameOfActivity: newName, time: time)
-        lastTimePoint.lastTimerMarkerReset()
-        }
 }
 
