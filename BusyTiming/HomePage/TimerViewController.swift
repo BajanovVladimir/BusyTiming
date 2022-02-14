@@ -7,7 +7,6 @@
 import UIKit
 import Combine
 
-
 class TimerViewController: UIViewController {
 
     private struct Constants {
@@ -63,12 +62,12 @@ class TimerViewController: UIViewController {
 extension    TimerViewController: UITableViewDataSource, UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return activity.activityBase.count
+        return activity.activitiesViewModel.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ActivitiesCell", for: indexPath)
-        let currentList = activity.activityBase[indexPath.row]
+        let currentList = activity.activitiesViewModel[indexPath.row]
         let currentName = currentList.name
         let currentTime = currentList.time
         let curentTimeString = currentTime.formatTime
@@ -81,12 +80,6 @@ extension    TimerViewController: UITableViewDataSource, UITableViewDelegate {
             activity.deleteActivity(index: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
         }
-    }
-    
-     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
-      //  activity.changeState(index: indexPath.row)
-        tableView.reloadData()
     }
     
 }

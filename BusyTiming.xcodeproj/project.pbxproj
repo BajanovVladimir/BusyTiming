@@ -17,7 +17,6 @@
 		0BADDF1A272FE07000F9F257 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0BADDF18272FE07000F9F257 /* Main.storyboard */; };
 		0BADDF1C272FE07000F9F257 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0BADDF1B272FE07000F9F257 /* Assets.xcassets */; };
 		0BADDF1F272FE07000F9F257 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0BADDF1D272FE07000F9F257 /* LaunchScreen.storyboard */; };
-		0BC3A4632733242A00D32B11 /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BC3A4622733242A00D32B11 /* Protocols.swift */; };
 		0BEED336273516DE00DF438B /* ListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BEED335273516DE00DF438B /* ListModel.swift */; };
 		3E29DCF8B4B104ADA972C488 /* Pods_BusyTiming.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6ADA9C94DB5F36E419B0CE1A /* Pods_BusyTiming.framework */; };
 		B566BCE427A45F9E00863082 /* NewActivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B566BCE327A45F9E00863082 /* NewActivityViewController.swift */; };
@@ -37,7 +36,6 @@
 		0BADDF1B272FE07000F9F257 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0BADDF1E272FE07000F9F257 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0BADDF20272FE07000F9F257 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		0BC3A4622733242A00D32B11 /* Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
 		0BEED335273516DE00DF438B /* ListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListModel.swift; sourceTree = "<group>"; };
 		4003CFE9A20D4393BD419063 /* Pods-BusyTiming.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BusyTiming.debug.xcconfig"; path = "Target Support Files/Pods-BusyTiming/Pods-BusyTiming.debug.xcconfig"; sourceTree = "<group>"; };
 		601A4777F5AEF2C356B76AB7 /* Pods-BusyTiming.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BusyTiming.release.xcconfig"; path = "Target Support Files/Pods-BusyTiming/Pods-BusyTiming.release.xcconfig"; sourceTree = "<group>"; };
@@ -89,7 +87,6 @@
 				0BADDF1B272FE07000F9F257 /* Assets.xcassets */,
 				0BADDF1D272FE07000F9F257 /* LaunchScreen.storyboard */,
 				0BADDF20272FE07000F9F257 /* Info.plist */,
-				0BC3A4622733242A00D32B11 /* Protocols.swift */,
 				0BEED335273516DE00DF438B /* ListModel.swift */,
 				0B80F36F273E65E800E04BD9 /* ActivityStruct.swift */,
 			);
@@ -254,7 +251,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0BC3A4632733242A00D32B11 /* Protocols.swift in Sources */,
 				0BADDF17272FE07000F9F257 /* TimerViewController.swift in Sources */,
 				B566BCE427A45F9E00863082 /* NewActivityViewController.swift in Sources */,
 				0B80F370273E65E800E04BD9 /* ActivityStruct.swift in Sources */,

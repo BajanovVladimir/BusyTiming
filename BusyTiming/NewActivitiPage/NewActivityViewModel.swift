@@ -24,7 +24,7 @@ class NewActivityViewModel {
             guard let newName = name else {
                 return
             }
-           activity.addActivity(nameOfActivity: newName, time: time)
+        activity.addActivity(nameOfActivity: newName, time: time)
         lastTimePoint.lastTimerMarkerReset()
         }
 }
