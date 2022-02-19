@@ -20,7 +20,7 @@ class TimerViewController: UIViewController {
         return viewController
     }()
     
-    let timerVM = TimerVM()
+   var timerVM = TimerVM()
     
     let activity = ActivitiesModel()
     var selectedIndex = 0

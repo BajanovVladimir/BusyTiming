@@ -6,19 +6,52 @@
 //
 
 import Foundation
+import Combine
 
 class NewActivityViewModel {
     
     let lastTimePoint = LastTimePoint()
     let activity = ActivitiesModel()
-    var time = 0
- 
-    func getTimeActivity() -> String {
-        let newActivityStartDate = lastTimePoint.lastTimeMarker
-        let newActivityEndDate = Date()
-         time = Int(newActivityEndDate.timeIntervalSince1970 - newActivityStartDate.timeIntervalSince1970)
-        return time.formatTime
+   
+    @Published private var startTime: Double
+    @Published private var endTime: Double
+    @Published  var activityTime: Double
+    private let totalTimeSubject = PassthroughSubject<String,Never>()
+    var totalTimePublisher:AnyPublisher<String,Never>{
+        totalTimeSubject.eraseToAnyPublisher()
     }
+    private var cancellebleBag = Set<AnyCancellable>()
+    
+    
+    init(){
+        startTime = lastTimePoint.lastTimeMarker.timeIntervalSince1970
+        endTime = Date().timeIntervalSince1970
+        activityTime = 0
+        $startTime.sink{ [weak self] value in
+            guard let endTime  = self?.endTime else {
+                return
+            }
+            self?.activityTime = endTime - value
+        }
+        .store(in: &cancellebleBag)
+        
+        $endTime.sink{[weak self] value in
+            guard let startTime = self?.startTime else {
+                return
+            }
+            self?.activityTime = value - startTime
+        }.store(in: &cancellebleBag)
+        
+        $activityTime.map({Int($0)}).map({$0.formatTime}).sink{[weak self] value in
+            self?.totalTimeSubject.send(value)
+        }.store(in: &cancellebleBag)
+        
+    }
+    
+    func getTimeActivity(){
+        activityTime = endTime - startTime
+    }
+    
     
 }
 
