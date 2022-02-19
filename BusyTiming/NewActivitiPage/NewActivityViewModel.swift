@@ -16,9 +16,9 @@ class NewActivityViewModel {
     @Published private var startTime: Double
     @Published private var endTime: Double
     @Published  var activityTime: Double
-    private let totalTimeSubject = PassthroughSubject<String,Never>()
-    var totalTimePublisher:AnyPublisher<String,Never>{
-        totalTimeSubject.eraseToAnyPublisher()
+    private let activityTimeSubject = PassthroughSubject<String,Never>()
+    var activityTimePublisher:AnyPublisher<String,Never>{
+        activityTimeSubject.eraseToAnyPublisher()
     }
     private var cancellebleBag = Set<AnyCancellable>()
     
@@ -43,7 +43,7 @@ class NewActivityViewModel {
         }.store(in: &cancellebleBag)
         
         $activityTime.map({Int($0)}).map({$0.formatTime}).sink{[weak self] value in
-            self?.totalTimeSubject.send(value)
+            self?.activityTimeSubject.send(value)
         }.store(in: &cancellebleBag)
         
     }

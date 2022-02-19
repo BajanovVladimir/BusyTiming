@@ -21,7 +21,7 @@ class NewActivityViewController: UIViewController {
     
     override func viewDidLoad() {
          super.viewDidLoad()
-        viewModel.totalTimePublisher.flatMap{Just($0)}
+        viewModel.activityTimePublisher.flatMap{Just($0)}
         .assign(to: \.text, on: activityTimeLabel)
             .store(in: &cancellableBag)
     }
