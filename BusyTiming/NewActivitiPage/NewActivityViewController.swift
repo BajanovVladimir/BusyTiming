@@ -18,7 +18,7 @@ class NewActivityViewController: UIViewController {
     var cancelleble: AnyCancellable?
     let timerVM = TimerVM()
     private var cancellableBag = Set<AnyCancellable>()
-    
+    private var activityTime = 0
     override func viewDidLoad() {
          super.viewDidLoad()
         viewModel.activityTimePublisher.flatMap{Just($0)}
@@ -28,7 +28,7 @@ class NewActivityViewController: UIViewController {
      
      override func viewWillAppear(_ animated: Bool) {
          super.viewWillAppear(animated)
-         viewModel.getTimeActivity()
+         activityTime = viewModel.getTimeActivity()
          let activityNameTextFieldPublisher = NotificationCenter.default.publisher(for: UITextField.textDidChangeNotification, object: activityNameTextField)
              .map{$0.object as? UITextField}
              .compactMap{$0?.text}.eraseToAnyPublisher()
@@ -59,7 +59,7 @@ class NewActivityViewController: UIViewController {
          guard let newName = activityNameTextField.text  else {
              return
          }
-         activitiesModel.addActivity(nameOfActivity: newName, time: Int(viewModel.activityTime))
+         activitiesModel.addActivity(nameOfActivity: newName, time: activityTime)
          activityNameTextField.text = ""
          viewModel.lastTimePoint.lastTimerMarkerReset()
          dismiss(animated: true, completion: nil)

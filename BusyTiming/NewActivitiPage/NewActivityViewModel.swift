@@ -48,8 +48,11 @@ class NewActivityViewModel {
         
     }
     
-    func getTimeActivity(){
+    func getTimeActivity() -> Int{
+        startTime = lastTimePoint.lastTimeMarker.timeIntervalSince1970
+        endTime = Date().timeIntervalSince1970
         activityTime = endTime - startTime
+        return Int(activityTime)
     }
     
     
