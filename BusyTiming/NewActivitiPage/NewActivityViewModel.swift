@@ -78,7 +78,6 @@ class NewActivityViewModel {
         activity.addActivity(nameOfActivity: newActivityName, time: Int(activityTime))
         newActivityName = ""
         lastTimePoint.lastTimerMarkerReset()
-        
     }
     
     func getTimeActivity() -> Int{
