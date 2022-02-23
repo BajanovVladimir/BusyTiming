@@ -14,7 +14,7 @@ class TimerViewController: UIViewController {
         static let ActivitiesCellKey = "ActivitiesCell"
     }
     
-    lazy var newActivityVC: NewActivityViewController = {
+        var newActivityVC: NewActivityViewController = {
         let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
         var viewController = storyboard.instantiateViewController(withIdentifier: Constants.NewActivityVCKey) as! NewActivityViewController
         return viewController
