@@ -25,9 +25,11 @@ class NewActivityViewController: UIViewController {
     
     override func viewDidLoad() {
          super.viewDidLoad()
+        
         viewModel.activityTimePublisher
         .assign(to: \.text, on: activityTimeLabel)
             .store(in: &cancellableBag)
+        
         viewModel.saveIsEnablePubliser
             .assign(to: \.isEnabled, on: saveButton)
             .store(in: &cancellableBag)
@@ -43,7 +45,7 @@ class NewActivityViewController: UIViewController {
      
      override func viewDidDisappear(_ animated: Bool) {
          super.viewDidDisappear(animated)
-         saveButton.isEnabled = false
+         //saveButton.isEnabled = false
      }
 
      @IBAction func cancelButtonPressed(_ sender: UIButton) {
@@ -52,6 +54,8 @@ class NewActivityViewController: UIViewController {
      }
      
      @IBAction func saveButtonPressed(_ sender: UIButton) {
+         viewModel.saveNewActivity()
+         activityNameTextField.text = ""
         dismiss(animated: true, completion: nil)
      }
  }

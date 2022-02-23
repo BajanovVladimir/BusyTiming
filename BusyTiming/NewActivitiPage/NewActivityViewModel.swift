@@ -74,15 +74,12 @@ class NewActivityViewModel {
         }.store(in: &cancellebleBag)
     }
     
-   /* func saveNewActivity(){
-       guard let newName = activityNameTextField.text  else {
-            return
-        }
-        activity.addActivity(nameOfActivity: newName, time: activityTime)
-        activityNameTextField.text = ""
+    func saveNewActivity(){
+        activity.addActivity(nameOfActivity: newActivityName, time: Int(activityTime))
+        newActivityName = ""
         lastTimePoint.lastTimerMarkerReset()
         
-    }*/
+    }
     
     func getTimeActivity() -> Int{
         startTime = lastTimePoint.lastTimeMarker.timeIntervalSince1970
