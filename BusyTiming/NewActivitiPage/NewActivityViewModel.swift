@@ -12,10 +12,12 @@ class NewActivityViewModel {
     
     let lastTimePoint = LastTimePoint()
     let activity = ActivitiesModel()
-   
+    
     @Published private var startTime: Double
     @Published private var endTime: Double
+    @Published var newActivityName:String
     @Published  var activityTime: Double
+    
     private let activityTimeSubject = PassthroughSubject<String,Never>()
     var activityTimePublisher:AnyPublisher<String,Never>{
         activityTimeSubject.eraseToAnyPublisher()
@@ -27,6 +29,7 @@ class NewActivityViewModel {
         startTime = lastTimePoint.lastTimeMarker.timeIntervalSince1970
         endTime = Date().timeIntervalSince1970
         activityTime = 0
+        newActivityName = ""
         $startTime.sink{ [weak self] value in
             guard let endTime  = self?.endTime else {
                 return
@@ -46,7 +49,20 @@ class NewActivityViewModel {
             self?.activityTimeSubject.send(value)
         }.store(in: &cancellebleBag)
         
+        $newActivityName.sink{value in
+            print(value)
+        }.store(in: &cancellebleBag)
     }
+    
+   /* func saveNewActivity(){
+       guard let newName = activityNameTextField.text  else {
+            return
+        }
+        activity.addActivity(nameOfActivity: newName, time: activityTime)
+        activityNameTextField.text = ""
+        lastTimePoint.lastTimerMarkerReset()
+        
+    }*/
     
     func getTimeActivity() -> Int{
         startTime = lastTimePoint.lastTimeMarker.timeIntervalSince1970
