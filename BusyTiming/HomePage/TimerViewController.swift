@@ -55,7 +55,7 @@ class TimerViewController: UIViewController {
     @IBAction func  addActivityButtonPressed(_ sender: UIButton){
         newActivityVC.modalPresentationStyle = .fullScreen
         newActivityVC.modalTransitionStyle = .coverVertical
-        show(newActivityVC, sender: nil)
+        present(newActivityVC, animated: true, completion: nil)
     }
 }
 

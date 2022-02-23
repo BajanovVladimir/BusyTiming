@@ -10,8 +10,8 @@ import Combine
 
 
 class NewActivityViewController: UIViewController {
-    private let viewModel = NewActivityViewModel()
-    
+   
+    let viewModel = NewActivityViewModel()
     @IBOutlet weak var activityTimeLabel: UILabel!
     @IBOutlet weak var activityNameTextField: UITextField!
     @IBOutlet weak var saveButton: UIButton!
@@ -21,8 +21,7 @@ class NewActivityViewController: UIViewController {
     private var activityTime = 0
     override func viewDidLoad() {
          super.viewDidLoad()
-        
-        viewModel.activityTimePublisher.flatMap{Just($0)}
+        viewModel.activityTimePublisher
         .assign(to: \.text, on: activityTimeLabel)
             .store(in: &cancellableBag)
         
@@ -33,7 +32,6 @@ class NewActivityViewController: UIViewController {
      override func viewWillAppear(_ animated: Bool) {
          super.viewWillAppear(animated)
          activityTime = viewModel.getTimeActivity()
-         
          let activityNameTextFieldPublisher = NotificationCenter.default.publisher(for: UITextField.textDidChangeNotification, object: activityNameTextField)
              .map{$0.object as? UITextField}
              .compactMap{$0?.text}.eraseToAnyPublisher()

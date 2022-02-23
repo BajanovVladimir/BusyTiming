@@ -10,19 +10,21 @@ import Combine
 
 class NewActivityViewModel {
     
-    let lastTimePoint = LastTimePoint()
-    let activity = ActivitiesModel()
+    private let lastTimePoint = LastTimePoint()
+    private let activity = ActivitiesModel()
     
-    @Published private var startTime: Double
-    @Published private var endTime: Double
+    var activityTimePublisher:AnyPublisher<String?,Never>{
+        activityTimeSubject.eraseToAnyPublisher()
+    }
+
     @Published var newActivityName:String
     @Published  var activityTime: Double
     
-    private let activityTimeSubject = PassthroughSubject<String,Never>()
-    var activityTimePublisher:AnyPublisher<String,Never>{
-        activityTimeSubject.eraseToAnyPublisher()
-    }
+   
+    private let activityTimeSubject = PassthroughSubject<String?,Never>()
     private var cancellebleBag = Set<AnyCancellable>()
+    @Published private var startTime: Double
+    @Published private var endTime: Double
     
     
     init(){
@@ -30,6 +32,7 @@ class NewActivityViewModel {
         endTime = Date().timeIntervalSince1970
         activityTime = 0
         newActivityName = ""
+        
         $startTime.sink{ [weak self] value in
             guard let endTime  = self?.endTime else {
                 return
