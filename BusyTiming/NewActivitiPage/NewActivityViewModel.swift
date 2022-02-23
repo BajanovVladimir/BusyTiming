@@ -27,12 +27,11 @@ class NewActivityViewModel {
     private let activityTimeSubject = PassthroughSubject<String?,Never>()
     private var cancellebleBag = Set<AnyCancellable>()
     
-    
-    
     init(){
         startTime = lastTimePoint.lastTimeMarker.timeIntervalSince1970
         endTime = Date().timeIntervalSince1970
         activityTime = 0
+        
         newActivityName = ""
         
         $startTime.sink{ [weak self] value in

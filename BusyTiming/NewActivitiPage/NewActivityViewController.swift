@@ -35,9 +35,7 @@ class NewActivityViewController: UIViewController {
      override func viewWillAppear(_ animated: Bool) {
          super.viewWillAppear(animated)
          activityTime = viewModel.getTimeActivity()
-         let activityNameTextFieldPublisher = NotificationCenter.default.publisher(for: UITextField.textDidChangeNotification, object: activityNameTextField)
-             .map{$0.object as? UITextField}
-             .compactMap{$0?.text}.eraseToAnyPublisher()
+         let activityNameTextFieldPublisher = activityNameTextField.textPublisher()
          
        activityNameTextFieldPublisher.map{str -> Bool in
                  let number = str.count
