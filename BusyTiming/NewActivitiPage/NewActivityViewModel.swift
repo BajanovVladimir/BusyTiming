@@ -10,21 +10,23 @@ import Combine
 
 class NewActivityViewModel {
     
-    private let lastTimePoint = LastTimePoint()
-    private let activity = ActivitiesModel()
+   
     
     var activityTimePublisher:AnyPublisher<String?,Never>{
         activityTimeSubject.eraseToAnyPublisher()
     }
 
     @Published var newActivityName:String
-    @Published  var activityTime: Double
+    @Published var activityTime: Double
     
-   
-    private let activityTimeSubject = PassthroughSubject<String?,Never>()
-    private var cancellebleBag = Set<AnyCancellable>()
     @Published private var startTime: Double
     @Published private var endTime: Double
+    
+    private let lastTimePoint = LastTimePoint()
+    private let activity = ActivitiesModel()
+    private let activityTimeSubject = PassthroughSubject<String?,Never>()
+    private var cancellebleBag = Set<AnyCancellable>()
+    
     
     
     init(){

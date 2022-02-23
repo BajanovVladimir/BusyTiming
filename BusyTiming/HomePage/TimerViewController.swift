@@ -32,7 +32,6 @@ class TimerViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // ***** Here is just subscription to updates of viewModel. no any logic.
         timerVM.durationString
             .flatMap { Just($0) }
             .assign(to: \.text, on: timerLabel)
