@@ -15,7 +15,6 @@ class NewActivityViewController: UIViewController {
     private let viewModel = NewActivityViewModel()
     private let timerVM = TimerVM()
     private var cancellableBag = Set<AnyCancellable>()
-    private var activityTime = 0
     
     @IBOutlet weak var activityTimeLabel: UILabel!
     @IBOutlet weak var activityNameTextField: UITextField!
@@ -43,7 +42,7 @@ class NewActivityViewController: UIViewController {
      
      override func viewWillAppear(_ animated: Bool) {
          super.viewWillAppear(animated)
-         activityTime = viewModel.getTimeActivity()
+         viewModel.getTimeActivity()
      }
 
      @IBAction func cancelButtonPressed(_ sender: UIButton) {

@@ -80,11 +80,10 @@ class NewActivityViewModel {
         lastTimePoint.lastTimerMarkerReset()
     }
     
-    func getTimeActivity() -> Int{
+    func getTimeActivity(){
         startTime = lastTimePoint.lastTimeMarker.timeIntervalSince1970
         endTime = Date().timeIntervalSince1970
         activityTime = endTime - startTime
-        return Int(activityTime)
     }
     
     
