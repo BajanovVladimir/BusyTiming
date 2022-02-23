@@ -68,7 +68,7 @@ extension    TimerViewController: UITableViewDataSource, UITableViewDelegate {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ActivitiesCell", for: indexPath)
         let currentList = activity.activitiesViewModel[indexPath.row]
         let currentName = currentList.name
-        let currentTime = currentList.time
+        let currentTime = currentList.duration
         let curentTimeString = currentTime.formatTime
         cell.textLabel?.text = currentName + "     " + curentTimeString
         return cell

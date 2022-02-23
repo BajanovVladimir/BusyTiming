@@ -12,17 +12,15 @@ import Combine
 class TimerVM {
    
     private let lastTimePoint = LastTimePoint()
+    private let durationStringSubject = PassthroughSubject<String, Never>()
+    private var cancellableBag = Set<AnyCancellable>()
+    let timer = Timer.publish(every: 1, on: .main, in: .common)
+
+    var cancellable: AnyCancellable?
     var durationString: AnyPublisher<String, Never> {
         durationStringSubject.eraseToAnyPublisher()
     }
     
-    private let durationStringSubject = PassthroughSubject<String, Never>()
-    let timer = Timer.publish(every: 1, on: .main, in: .common)
-
-    private var cancellableBag = Set<AnyCancellable>()
-
-    var cancellable: AnyCancellable?
-
     init() {
         // **** tale the timer values
          timer

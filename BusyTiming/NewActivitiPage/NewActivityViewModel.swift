@@ -75,7 +75,7 @@ class NewActivityViewModel {
     }
     
     func saveNewActivity(){
-        activity.addActivity(nameOfActivity: newActivityName, time: Int(activityTime))
+        activity.addActivity(nameOfActivity: newActivityName, startTime: startTime, endTime: endTime)
         newActivityName = ""
         lastTimePoint.lastTimerMarkerReset()
     }

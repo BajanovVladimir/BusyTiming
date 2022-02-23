@@ -9,6 +9,12 @@ import RealmSwift
 
  class Activity: Object {
      @objc dynamic var name: String = ""
-     //@objc dynamic var isSelected:  Bool = false
-     @objc dynamic var time: Int = 0
+     @objc dynamic var startTime: Double = 0
+     @objc dynamic var endTime: Double = 0
+}
+
+extension Activity {
+    @objc dynamic var duration: Int {
+        return Int(endTime - startTime)
+    }
 }

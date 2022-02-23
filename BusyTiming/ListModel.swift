@@ -11,7 +11,6 @@ import RealmSwift
 class ActivitiesModel  {
 
     var activitiesViewModel: Results <Activity>!
-    var selectedIndex = 0
     var activityName = ""
     var activityTime  = 0
     
@@ -30,10 +29,11 @@ class ActivitiesModel  {
         }
     }
     
-    func addActivity(nameOfActivity: String, time:Int = 0) {
+    func addActivity(nameOfActivity: String, startTime:Double = 0.0, endTime:Double = 0.0) {
         let activity = Activity()
         activity.name = nameOfActivity
-        activity.time = time
+        activity.startTime = startTime
+        activity.endTime = endTime
         do {
             let realm = try Realm()
             try realm.write {
