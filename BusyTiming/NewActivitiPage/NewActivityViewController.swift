@@ -10,7 +10,8 @@ import Combine
 
 
 class NewActivityViewController: UIViewController {
-   
+    
+    
     private let viewModel = NewActivityViewModel()
     private let timerVM = TimerVM()
     private var cancellableBag = Set<AnyCancellable>()
@@ -27,6 +28,9 @@ class NewActivityViewController: UIViewController {
         viewModel.activityTimePublisher
         .assign(to: \.text, on: activityTimeLabel)
             .store(in: &cancellableBag)
+        viewModel.saveIsEnablePubliser
+            .assign(to: \.isEnabled, on: saveButton)
+            .store(in: &cancellableBag)
         
         activityNameTextField.textPublisher().assign(to: \.newActivityName, on: viewModel)
             .store(in: &cancellableBag)
@@ -35,17 +39,6 @@ class NewActivityViewController: UIViewController {
      override func viewWillAppear(_ animated: Bool) {
          super.viewWillAppear(animated)
          activityTime = viewModel.getTimeActivity()
-         let activityNameTextFieldPublisher = activityNameTextField.textPublisher()
-         
-       activityNameTextFieldPublisher.map{str -> Bool in
-                 let number = str.count
-             if number > 2 && number < 10 {
-                 return true
-             } else {
-                 return false
-             }
-         }.assign(to: \.isEnabled, on: saveButton)
-             .store(in: &cancellableBag)
      }
      
      override func viewDidDisappear(_ animated: Bool) {
@@ -59,7 +52,7 @@ class NewActivityViewController: UIViewController {
      }
      
      @IBAction func saveButtonPressed(_ sender: UIButton) {
-         dismiss(animated: true, completion: nil)
+        dismiss(animated: true, completion: nil)
      }
  }
 

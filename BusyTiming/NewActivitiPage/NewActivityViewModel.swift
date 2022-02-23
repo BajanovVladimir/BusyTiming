@@ -15,7 +15,10 @@ class NewActivityViewModel {
     var activityTimePublisher:AnyPublisher<String?,Never>{
         activityTimeSubject.eraseToAnyPublisher()
     }
-
+    var saveIsEnablePubliser: AnyPublisher<Bool,Never>{
+        saveIsEnableSubject.eraseToAnyPublisher()
+    }
+    @Published var saveIsEnabled:Bool
     @Published var newActivityName:String
     @Published var activityTime: Double
     
@@ -25,12 +28,14 @@ class NewActivityViewModel {
     private let lastTimePoint = LastTimePoint()
     private let activity = ActivitiesModel()
     private let activityTimeSubject = PassthroughSubject<String?,Never>()
+    private let saveIsEnableSubject = PassthroughSubject<Bool,Never>()
     private var cancellebleBag = Set<AnyCancellable>()
     
     init(){
         startTime = lastTimePoint.lastTimeMarker.timeIntervalSince1970
         endTime = Date().timeIntervalSince1970
         activityTime = 0
+        saveIsEnabled = false
         
         newActivityName = ""
         
@@ -53,8 +58,19 @@ class NewActivityViewModel {
             self?.activityTimeSubject.send(value)
         }.store(in: &cancellebleBag)
         
-        $newActivityName.sink{value in
-            print(value)
+        $newActivityName.map {str -> Bool in
+            let number = str.count
+            if number > 2 && number < 10 {
+                return true
+            } else {
+                return false
+            }
+        }
+        .assign(to: \.saveIsEnabled, on: self)
+        .store(in: &cancellebleBag)
+        
+        $saveIsEnabled.sink{[weak self] value in
+            self?.saveIsEnableSubject.send(value)
         }.store(in: &cancellebleBag)
     }
     
