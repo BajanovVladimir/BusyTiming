@@ -46,7 +46,7 @@ class NewActivityViewController: UIViewController {
      }
 
      @IBAction func cancelButtonPressed(_ sender: UIButton) {
-      activityNameTextField.text = ""
+      viewModel.newActivityName = ""
       dismiss(animated: true, completion: nil)
      }
      
