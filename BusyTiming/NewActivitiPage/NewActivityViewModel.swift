@@ -18,6 +18,7 @@ class NewActivityViewModel {
     var saveIsEnablePubliser: AnyPublisher<Bool,Never>{
         saveIsEnableSubject.eraseToAnyPublisher()
     }
+    
     @Published var saveIsEnabled:Bool
     @Published var newActivityName:String
     @Published var activityTime: Double
@@ -36,7 +37,6 @@ class NewActivityViewModel {
         endTime = Date().timeIntervalSince1970
         activityTime = 0
         saveIsEnabled = false
-        
         newActivityName = ""
         
         $startTime.sink{ [weak self] value in

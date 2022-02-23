@@ -51,7 +51,7 @@ class NewActivityViewController: UIViewController {
      }
      
      @IBAction func saveButtonPressed(_ sender: UIButton) {
-         viewModel.saveNewActivity()
+        viewModel.saveNewActivity()
         dismiss(animated: true, completion: nil)
      }
  }
