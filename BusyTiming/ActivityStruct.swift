@@ -14,7 +14,7 @@ import RealmSwift
 }
 
 extension Activity {
-    @objc dynamic var duration: Int {
+        var duration: Int {
         return Int(endTime - startTime)
     }
 }
