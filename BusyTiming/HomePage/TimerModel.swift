@@ -9,7 +9,7 @@ import Foundation
 
 // ***** I kept it 'TimerModel' for now to not confuse you as you are familiar with this name.
 // ***** Later it should be renamed to something like SavedTimePointRepository
-class LastTimePoint {
+class TimerModel {
 
     private struct Constants {
         static let lastTimeMarkerKey = "lastTimeMarkerKey"
@@ -35,11 +35,11 @@ class LastTimePoint {
     private func updateValueInUserDefaults(newValue: Double) {
         UserDefaults.standard.set(newValue, forKey: Constants.lastTimeMarkerKey)
     }
-    
     func lastTimerMarkerReset(){
         UserDefaults.standard.removeObject(forKey: Constants.lastTimeMarkerKey)
         UserDefaults.standard.synchronize()
         
     }
 }
+
 

@@ -6,55 +6,35 @@
 //
 
 import Foundation
-import RealmSwift
 
 class ActivitiesModel  {
 
-    var activitiesViewModel: Results <Activity>!
+    var activity: [Activity] = []
+    var selectedIndex = 0
     var activityName = ""
     var activityTime  = 0
     
-    private struct ErrorBase {
-        static let ErrorInitBase = "Realm initialization error"
-        static let ErrorChangeBase = "Base change error"
-    }
-    
-    init() {
-        do{
-            let realm = try Realm()
-            self.activitiesViewModel = realm.objects(Activity.self)
-        }
-        catch {
-            print(ErrorBase.ErrorInitBase)
+    func addActivity(nameOfActivity: String, isCompleted:Bool = false, time:Int = 0) {
+        let activityStr = Activity(nameInit: nameOfActivity, selectedInit: isCompleted,
+                                timeInit: time)
+        activity.append(activityStr)
+        if activity.count == 1 {
+            activity[0].isSelected = true
+            activityName = activity[0].name
         }
     }
-    
-    func addActivity(nameOfActivity: String, startTime:Double = 0.0, endTime:Double = 0.0) {
-        let activity = Activity()
-        activity.name = nameOfActivity
-        activity.startTime = startTime
-        activity.endTime = endTime
-        do {
-            let realm = try Realm()
-            try realm.write {
-            realm.add(activity)
-            }
-        } catch {
-            print(ErrorBase.ErrorChangeBase)
+
+    func changeState (index: Int) {
+        if index != selectedIndex {
+            activity[index].isSelected = !(activity[index].isSelected)
+            activity[selectedIndex].isSelected = false
         }
+        selectedIndex = index
+        activityName = activity[selectedIndex].name
     }
 
     func deleteActivity(index: Int){
-        do {
-            let realm = try Realm()
-            let activity = activitiesViewModel[index]
-            try realm.write {
-            realm.delete(activity)
-            }
-        } catch {
-            print(ErrorBase.ErrorInitBase)
-        }
+        selectedIndex = 0
+        activity.remove(at: index)
     }
-    
 }
-
