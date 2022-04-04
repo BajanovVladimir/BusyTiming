@@ -14,12 +14,6 @@ class TimerViewController: UIViewController {
         static let ActivitiesCellKey = "ActivitiesCell"
     }
     
-        var newActivityVC: NewActivityViewController = {
-        let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
-        var viewController = storyboard.instantiateViewController(withIdentifier: Constants.NewActivityVCKey) as! NewActivityViewController
-        return viewController
-    }()
-    
    var timerVM = TimerVM()
     
     let activity = ActivitiesModel()
@@ -52,6 +46,11 @@ class TimerViewController: UIViewController {
     }
     
     @IBAction func  addActivityButtonPressed(_ sender: UIButton){
+        var newActivityVC: NewActivityViewController = {
+        let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+        var viewController = storyboard.instantiateViewController(withIdentifier: Constants.NewActivityVCKey) as! NewActivityViewController
+        return viewController
+    }()
         newActivityVC.modalPresentationStyle = .fullScreen
         newActivityVC.modalTransitionStyle = .coverVertical
         present(newActivityVC, animated: true, completion: nil)
