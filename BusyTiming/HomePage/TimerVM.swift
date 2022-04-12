@@ -5,26 +5,24 @@
 //  Created by Владимир Бажанов on 12/2/21.
 //
 
+
 import Foundation
 import Combine
 
-// ***** Here is the main logic.
 class TimerVM {
+   
+    private let lastTimePoint = LastTimePoint()
+    private let durationStringSubject = PassthroughSubject<String, Never>()
+    private var cancellableBag = Set<AnyCancellable>()
+    let timer = Timer.publish(every: 1, on: .main, in: .common)
 
-    // ***** Note that model property is `private`, so view cannot access it.
-    private let timerModel = TimerModel()
+    var cancellable: AnyCancellable?
     var durationString: AnyPublisher<String, Never> {
         durationStringSubject.eraseToAnyPublisher()
     }
-    private let durationStringSubject = PassthroughSubject<String, Never>()
-    let timer = Timer.publish(every: 1, on: .main, in: .common)
-
-    private var cancellableBag = Set<AnyCancellable>()
-
-    var cancellable: AnyCancellable?
-
+    
     init() {
-        // **** tale the timet values
+        // **** tale the timer values
          timer
             // **** Calculate difference between timer and value from model
             .map(duration(from:))
@@ -46,11 +44,12 @@ class TimerVM {
     }
     
     func timerReset(){
-        timerModel.lastTimerMarkerReset()
+        lastTimePoint.lastTimerMarkerReset()
     }
+    
     private func duration(from date: Date) -> Int {
         let currentTime = date.timeIntervalSince1970
-        return Int(round(currentTime - timerModel.lastTimeMarker.timeIntervalSince1970))
+        return Int(round(currentTime - lastTimePoint.lastTimeMarker.timeIntervalSince1970))
     }
 
     deinit {
