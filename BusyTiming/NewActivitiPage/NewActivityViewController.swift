@@ -20,8 +20,6 @@ class NewActivityViewController: UIViewController {
     @IBOutlet weak var activityNameTextField: UITextField!
     @IBOutlet weak var saveButton: UIButton!
     
-   
-    
     override func viewDidLoad() {
          super.viewDidLoad()
         

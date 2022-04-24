@@ -10,8 +10,6 @@ import Combine
 
 class NewActivityViewModel {
     
-   
-    
     var activityTimePublisher:AnyPublisher<String?,Never>{
         activityTimeSubject.eraseToAnyPublisher()
     }
@@ -85,7 +83,6 @@ class NewActivityViewModel {
         endTime = Date().timeIntervalSince1970
         activityTime = endTime - startTime
     }
-    
-    
+
 }
 
