@@ -28,9 +28,12 @@ class NewActivityViewModel {
     private let activity = ActivitiesModel()
     private let activityTimeSubject = PassthroughSubject<String?,Never>()
     private let saveIsEnableSubject = PassthroughSubject<Bool,Never>()
+    private let minNumberOfCharacters = 2
+    private let maxNumberOfCharacters  = 15
     private var cancellebleBag = Set<AnyCancellable>()
-    
+           
     init(){
+        
         startTime = lastTimePoint.lastTimeMarker.timeIntervalSince1970
         endTime = Date().timeIntervalSince1970
         activityTime = 0
@@ -56,9 +59,9 @@ class NewActivityViewModel {
             self?.activityTimeSubject.send(value)
         }.store(in: &cancellebleBag)
         
-        $newActivityName.map {str -> Bool in
+        $newActivityName.map { [self]str -> Bool in
             let number = str.count
-            if number > 2 && number < 10 {
+            if number > self.minNumberOfCharacters && number < self.maxNumberOfCharacters {
                 return true
             } else {
                 return false
